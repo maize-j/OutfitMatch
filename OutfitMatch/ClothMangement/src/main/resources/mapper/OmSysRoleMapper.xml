@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.yz.clothManagement.dao.IOmSysRoleDao">
+
+    <resultMap id="omSysRoleMap" type="cn.yz.clothManagement.entity.OmSysRole">
+        <id column="role_id" property="roleId" jdbcType="BIGINT"/>
+        <result column="description" property="description" jdbcType="VARCHAR"/>
+        <result column="role" property="role" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <resultMap id="omSysPermissionMap" type="cn.yz.clothManagement.entity.OmSysPermission">
+        <id column="permission_id" property="permissionId" jdbcType="BIGINT"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="parent_id" property="parentId" jdbcType="BIGINT"/>
+        <result column="permission" property="permission" jdbcType="VARCHAR"/>
+        <result column="url" property="url" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="getFullRole" resultMap="omSysRoleMap">
+        SELECT * FROM om_sys_role
+    </select>
+
+    <select id="getPermissionByRole" resultMap="omSysPermissionMap">
+        SELECT *
+        FROM om_sys_permission
+        WHERE permission_id in (SELECT permission_id FROM om_sys_role_permission WHERE role_id = #{roleId})
+    </select>
+
+    <insert id="insert">
+        INSERT INTO om_sys_role_permission(`role_id`, `permission_id`)
+        VALUES (#{roleId},#{permissionId})
+    </insert>
+    
+    <delete id="delete">
+        DELETE FROM om_sys_role_permission WHERE role_id = #{roleId} AND permission_id = #{permissionId}
+    </delete>
+</mapper>

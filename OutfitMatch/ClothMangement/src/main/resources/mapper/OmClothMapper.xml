@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.yz.clothManagement.dao.IOmClothDao">
+
+    <resultMap id="omClothMap" type="cn.yz.clothManagement.entity.OmCloth">
+        <id column="cloth_id" property="clothId" jdbcType="BIGINT"/>
+        <result column="cloth_uri" property="clothUri" jdbcType="VARCHAR"/>
+        <result column="category_id" property="categoryId" jdbcType="BIGINT"/>
+        <result column="user_id" property="user_id" jdbcType="BIGINT"/>
+        <result column="cloth_season" property="clothSeason" jdbcType="CHAR" javaType="int"/>
+        <result column="cloth_desc" property="clothDesc" jdbcType="VARCHAR"/>
+        <result column="del_flag" property="delFlag" jdbcType="CHAR" javaType="int"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+    </resultMap>
+
+    <insert id="insert" parameterType="cn.yz.clothManagement.entity.OmCloth" useGeneratedKeys="true" keyProperty="clothId"  keyColumn="cloth_id">
+        INSERT INTO om_cloth( `cloth_uri`, `category_id`, `cloth_season`, `create_time`, `update_time`, `del_flag`, `cloth_desc`, `user_id`)
+        VALUES ( #{clothUri}, #{categoryId}, #{clothSeason}, #{createTime}, #{updateTime}, 0, #{clothDesc}, #{userId});
+    </insert>
+    
+    <select id="getClothByUser" resultMap="omClothMap">
+        SELECT *
+        FROM om_cloth
+        WHERE user_id = #{userId} AND del_flag = 0
+    </select>
+    
+    <select id="getClothByUserAndCate" resultMap="omClothMap">
+        SELECT *
+        FROM om_cloth
+        WHERE user_id = #{userId} AND category_id = #{categoryId} AND del_flag = 0
+    </select>
+    
+    <select id="">
+
+    </select>
+    
+    <update id="delete">
+        UPDATE om_cloth SET del_flag = 1 WHERE cloth_id = #{clothId}
+    </update>
+
+</mapper>

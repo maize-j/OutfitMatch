@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.yz.clothManagement.dao.IOmSysLogDao">
+
+    <resultMap id="omSysLogMap" type="cn.yz.clothManagement.entity.OmSysLog">
+        <id column="log_id" property="logId" jdbcType="BIGINT"/>
+        <result column="log_type" property="logType" jdbcType="CHAR" javaType="int"/>
+        <result column="log_content" property="logContent" jdbcType="VARCHAR"/>
+        <result column="user_id" property="userId" jdbcType="BIGINT"/>
+        <result column="username" property="username" jdbcType="VARCHAR"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+    </resultMap>
+
+
+    <insert id="insert" parameterType="cn.yz.clothManagement.entity.OmSysLog">
+        INSERT INTO  om_sys_log(`log_type`, `log_content`, `user_id`, `username`, `create_time`)
+        VALUES (#{logType}, #{logContent}, #{userId}, #{username}, #{createTime});
+    </insert>
+    
+    <select id="getById" resultMap="omSysLogMap">
+        SELECT * FROM om_sys_log WHERE log_id = #{logId};
+    </select>
+
+
+</mapper>

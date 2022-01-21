@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.yz.clothManagement.dao.IItemDataDao">
+
+    <resultMap id="itemDataMap" type="cn.yz.clothManagement.entity.ItemData">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="item_id" property="itemId" jdbcType="VARCHAR"/>
+        <result column="pic_url" property="picUrl" jdbcType="VARCHAR"/>
+        <result column="title" property="title" jdbcType="VARCHAR"/>
+        <result column="desc" property="desc" jdbcType="VARCHAR"/>
+    </resultMap>
+    
+    <update id="updateSeasonById">
+        UPDATE item_data SET season = #{season} WHERE id = #{id}
+    </update>
+
+    <select id="getItemDataBySeason" resultMap="itemDataMap">
+        select id,title from item_data WHERE season IS NULL order by `id` limit #{limit}
+    </select>
+
+    <select id="getItemDataByIds" parameterType="java.util.List" resultMap="itemDataMap">
+        select * from item_data
+        where item_id in
+        <foreach collection="itemIds" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+    
+    <select id="getItemDataByOutfit" resultMap="itemDataMap">
+        SELECT *
+        FROM item_data
+        WHERE item_id in (SELECT item_id FROM outfit_data WHERE outfit_id = #{outfitId})
+    </select>
+
+    <update id="updateDescById">
+        UPDATE item_data SET `desc` = #{desc} WHERE id = #{id}
+    </update>
+
+</mapper>

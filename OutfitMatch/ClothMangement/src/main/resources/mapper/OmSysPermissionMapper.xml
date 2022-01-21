@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.yz.clothManagement.dao.IOmSysPermissionDao">
+
+    <resultMap id="omSysPermissionMap" type="cn.yz.clothManagement.entity.OmSysPermission">
+        <id column="permission_id" property="permissionId" jdbcType="BIGINT"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="parent_id" property="parentId" jdbcType="BIGINT"/>
+        <result column="permission" property="permission" jdbcType="VARCHAR"/>
+        <result column="url" property="url" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <insert id="getFullRole" parameterType="cn.yz.clothManagement.entity.OmSysPermission">
+        INSERT INTO om_sys_permission(`name`, `parent_id`,`permission`,`url`)
+        VALUES (#{name},#{parentId},#{permission},#{url})
+    </insert>
+
+</mapper>

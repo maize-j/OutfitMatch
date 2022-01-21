@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.yz.clothManagement.dao.IKeywordsDao">
+
+    <resultMap id="keywordsMap" type="cn.yz.clothManagement.entity.Keywords">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="word" property="word" jdbcType="VARCHAR"/>
+        <result column="count" property="count" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <select id="getKeywords" resultMap="keywordsMap">
+        SELECT * from keywords
+    </select>
+    
+    <update id="updataCountById">
+        UPDATE keywords SET `count`=#{count} WHERE id=#{id}
+    </update>
+
+</mapper>

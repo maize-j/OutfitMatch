@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.yz.clothManagement.dao.IOmKeywordDao">
+
+    <resultMap id="omKeywordMap" type="cn.yz.clothManagement.entity.OmKeyword">
+        <id column="keyword_id" property="keywordId" jdbcType="BIGINT"/>
+        <result column="keyword" property="keyword" jdbcType="VARCHAR"/>
+        <result column="user_id" property="userId" jdbcType="BIGINT"/>
+        <result column="count" property="count" jdbcType="INTEGER"/>
+        <result column="del_flag" property="delFlag" jdbcType="CHAR" javaType="int"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+    </resultMap>
+
+    <insert id="insert" parameterType="cn.yz.clothManagement.entity.OmKeyword">
+        INSERT INTO om_keyword(`keyword`, `user_id`, `count`, `create_time`, `update_time`, `del_flag`)
+        VALUES (#{keyword}, #{userId}, 0, #{createTime}, #{updateTime}, 0);
+    </insert>
+
+    <update id="updateCount">
+        UPDATE om_keyword SET `count` = #{count} WHERE userId = #{userId} AND keyword = #{keyword} AND del_flag = 0
+    </update>
+
+    <select id="getOmKeywordByUserIdAndKeyword" resultMap="omKeywordMap">
+        SELECT user_id,keyword,`count`
+        FROM om_keyword
+        WHERE user_id = #{userId} AND keyword = #{keyword} AND del_flag = 0
+    </select>
+
+    <select id="getTopNKeyWord" resultMap="omKeywordMap">
+        SELECT user_id,keywords,`count`
+        FROM om_keyword
+        WHERE user_id = #{userId} limit #{num}
+    </select>
+
+    <update id="delete">
+        UPDATE om_keyword SET `count` = 0,del_flag = 1 WHERE userId = #{userId} AND keyword = #{keyword}
+    </update>
+
+</mapper>

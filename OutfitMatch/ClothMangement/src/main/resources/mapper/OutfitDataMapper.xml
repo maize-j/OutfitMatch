@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.yz.clothManagement.dao.IOutfitDataDao">
+
+    <resultMap id="outfitDataMap" type="cn.yz.clothManagement.entity.OutfitData">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="outfit_id" property="outfitId" jdbcType="VARCHAR"/>
+        <result column="item_id" property="itemId" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <delete id="delByOutfitId">
+        DELETE FROM outfit_data WHERE outfit_id = #{outfitId}
+    </delete>
+
+    <select id="getOutfitData" resultType="String">
+        SELECT outfit_id FROM outfit_data GROUP BY outfit_id ORDER BY outfit_id LIMIT #{start},#{limit}
+    </select>
+    
+    <select id="getItemIds" resultType="String">
+        SELECT item_id FROM outfit_data GROUP BY item_id ORDER BY item_id LIMIT #{start},#{limit}
+    </select>
+
+    <select id="getUnDownloadOutfitIds" resultType="String">
+        SELECT outfit_id FROM outfit_data WHERE download = 0 and flag = #{flag} GROUP BY outfit_id ORDER BY outfit_id
+    </select>
+    
+    <update id="updateDownloadByOutfitId">
+        UPDATE outfit_data set download = #{download} WHERE outfit_id= #{outfitId}
+    </update>
+    
+    <select id="getOutfitByFlag" resultType="String">
+        SELECT outfit_id FROM outfit_data WHERE download = 1 and flag = #{flag} GROUP BY outfit_id ORDER BY outfit_id
+    </select>
+    
+    <select id="getCountByOutfitId" resultType="int">
+        SELECT COUNT(*) FROM outfit_data WHERE outfit_id = #{outfitId}
+    </select>
+
+    <select id="getOutfitByCount" resultType="String">
+        SELECT outfit_id FROM outfit_data WHERE flag = #{flag} GROUP BY outfit_id HAVING COUNT(outfit_id) = #{count}
+    </select>
+</mapper>
+
