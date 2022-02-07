@@ -13,7 +13,8 @@
     </delete>
 
     <select id="getOutfitData" resultType="String">
-        SELECT outfit_id FROM outfit_data GROUP BY outfit_id ORDER BY outfit_id LIMIT #{start},#{limit}
+--         SELECT outfit_id FROM outfit_data GROUP BY outfit_id ORDER BY outfit_id LIMIT #{start},#{limit}
+        SELECT outfit_id FROM outfit_data WHERE download = 1 GROUP BY outfit_id ORDER BY outfit_id
     </select>
     
     <select id="getItemIds" resultType="String">
@@ -21,7 +22,7 @@
     </select>
 
     <select id="getUnDownloadOutfitIds" resultType="String">
-        SELECT outfit_id FROM outfit_data WHERE download = 0 and flag = #{flag} GROUP BY outfit_id ORDER BY outfit_id
+        SELECT outfit_id FROM outfit_data WHERE download = 0 and flag = #{flag} AND reserve = 1 GROUP BY outfit_id ORDER BY outfit_id
     </select>
     
     <update id="updateDownloadByOutfitId">
@@ -29,7 +30,7 @@
     </update>
     
     <select id="getOutfitByFlag" resultType="String">
-        SELECT outfit_id FROM outfit_data WHERE download = 1 and flag = #{flag} GROUP BY outfit_id ORDER BY outfit_id
+        SELECT outfit_id FROM outfit_data WHERE download = 1 and flag = #{flag} and reserve = 1 GROUP BY outfit_id ORDER BY outfit_id
     </select>
     
     <select id="getCountByOutfitId" resultType="int">
@@ -37,7 +38,14 @@
     </select>
 
     <select id="getOutfitByCount" resultType="String">
-        SELECT outfit_id FROM outfit_data WHERE flag = #{flag} GROUP BY outfit_id HAVING COUNT(outfit_id) = #{count}
+        SELECT outfit_id FROM outfit_data WHERE flag = #{flag} AND reserve IS NULL GROUP BY outfit_id
     </select>
+<!--<select id="getOutfitByCount" resultType="String">
+        SELECT outfit_id FROM outfit_data WHERE flag = #{flag} GROUP BY outfit_id HAVING COUNT(outfit_id) = #{count}
+    </select>-->
+
+    <update id="updateReserve">
+        UPDATE outfit_data set reserve = 1 WHERE outfit_id= #{outfitId}
+    </update>
 </mapper>
 

@@ -18,6 +18,7 @@ public interface IOutfitDataService {
     void checkDownLoad(int flag) throws IOException;
 
     /**删除数据集，3件的保留1/5，其余的保留1/3*/
-    void delDateSet(int flag,int count) throws IOException;
+    void delDateSet(int flag) throws IOException;
+
 
 }

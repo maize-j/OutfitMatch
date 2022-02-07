@@ -3,10 +3,7 @@ package cn.yz.clothManagement.controller;
 import cn.yz.clothManagement.config.redis.RedisUtil;
 import cn.yz.clothManagement.dao.IOmSysLogDao;
 import cn.yz.clothManagement.dao.IOmSysUserDao;
-import cn.yz.clothManagement.entity.CommonResult;
-import cn.yz.clothManagement.entity.OmSysLog;
-import cn.yz.clothManagement.entity.OmSysUser;
-import cn.yz.clothManagement.entity.StatusCode;
+import cn.yz.clothManagement.entity.*;
 import cn.yz.clothManagement.utils.CommonConstant;
 import cn.yz.clothManagement.utils.CommonUtil;
 import cn.yz.clothManagement.utils.JWTUtil;
@@ -72,4 +69,17 @@ public class OmSysController {
         //这里前端校验了
         return new CommonResult<>(StatusCode.EMPTY_ERROR,"用户名和密码不能为空");
     }
+
+    @GetMapping("/sys/getPermession")
+    public CommonResult<Object> getPermession(@RequestParam("username") String username){
+
+//        if(){
+//
+//            return new CommonResult<>(StatusCode.SUCCESS,null);
+//        }
+        return new CommonResult<>(StatusCode.EMPTY_ERROR,"用户名不存在");
+
+
+    }
+
 }

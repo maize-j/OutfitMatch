@@ -25,4 +25,6 @@ public interface IItemDataDao {
     List<ItemData> getItemDataByOutfit(@Param("outfitId") String outfitId);
 
     void updateDescById(@Param("id") Integer id, @Param("desc") String desc);
+
+    List<Integer> getCategoryId(@Param("cateIds") List<String> cateIds);
 }

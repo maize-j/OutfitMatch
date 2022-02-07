@@ -11,4 +11,7 @@ import cn.yz.clothManagement.entity.OmSysUser;
  */
 public interface IOmSysUserService {
     OmSysUser getUserByName(String username);
+
+
+
 }

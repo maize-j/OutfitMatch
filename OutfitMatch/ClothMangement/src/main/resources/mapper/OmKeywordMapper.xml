@@ -37,4 +37,10 @@
         UPDATE om_keyword SET `count` = 0,del_flag = 1 WHERE userId = #{userId} AND keyword = #{keyword}
     </update>
 
+    <select id="getKeywordsByCloth" resultType="String">
+        SELECT `keyword`
+        FROM om_keyword
+        WHERE keyword_id in (SELECT keyword_id FROM om_cloth_keyword WHERE cloth_id = #{clothId})
+    </select>
+
 </mapper>

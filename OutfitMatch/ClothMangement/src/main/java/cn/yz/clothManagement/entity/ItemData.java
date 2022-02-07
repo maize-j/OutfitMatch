@@ -19,6 +19,7 @@ import java.io.Serializable;
 public class ItemData implements Serializable {
     private Integer id;
     private String itemId;
+    /**小类的id*/
     private String cateId;
     private String picUrl;
     private String title;

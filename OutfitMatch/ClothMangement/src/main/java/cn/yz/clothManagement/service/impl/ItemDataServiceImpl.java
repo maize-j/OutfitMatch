@@ -51,9 +51,9 @@ public class ItemDataServiceImpl implements IItemDataService {
 
     @PostConstruct
     public void init(){
-//        trainOutfitQueue = outfitDataDao.getUnDownloadOutfitIds(0);
-//        validOutfitQueue = outfitDataDao.getUnDownloadOutfitIds(1);
-//        testOutfitQueue = outfitDataDao.getUnDownloadOutfitIds(2);
+        trainOutfitQueue = outfitDataDao.getUnDownloadOutfitIds(0);
+        validOutfitQueue = outfitDataDao.getUnDownloadOutfitIds(1);
+        testOutfitQueue = outfitDataDao.getUnDownloadOutfitIds(2);
     }
 
 
@@ -190,9 +190,9 @@ public class ItemDataServiceImpl implements IItemDataService {
                     // 输入流
                     is = con.getInputStream();
                     BufferedImage image = ImageIO.read(is);
-                    BufferedImage resizedImage = new BufferedImage(image.getWidth()/4, image.getHeight()/4, BufferedImage.TYPE_INT_RGB);
+                    BufferedImage resizedImage = new BufferedImage(image.getWidth()/3, image.getHeight()/3, BufferedImage.TYPE_INT_RGB);
                     Graphics2D graphics2D = resizedImage.createGraphics();
-                    graphics2D.drawImage(image, 0, 0, image.getWidth()/4, image.getHeight()/4, null);
+                    graphics2D.drawImage(image, 0, 0, image.getWidth()/3, image.getHeight()/3, null);
                     graphics2D.dispose();
                     //文件名称
                     String filename = filePathWithId + "/" + (i++) + ".png";

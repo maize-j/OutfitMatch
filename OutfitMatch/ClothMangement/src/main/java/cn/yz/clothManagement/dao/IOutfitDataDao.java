@@ -17,7 +17,8 @@ import java.util.List;
 public interface IOutfitDataDao {
     void delByOutfitId(@Param("outfitId") String outfitId);
 
-    List<String> getOutfitData(@Param("start") int start,@Param("limit") int limit);
+//    List<String> getOutfitData(@Param("start") int start,@Param("limit") int limit);
+    LinkedList<String> getOutfitData();
 
     List<String> getItemIds(@Param("start") int start,@Param("limit") int limit);
 
@@ -29,5 +30,8 @@ public interface IOutfitDataDao {
 
     List<String> getOutfitByFlag(@Param("flag") int flag);
 
-    List<String> getOutfitByCount(@Param("flag") int flag, @Param("count") int count);
+    List<String> getOutfitByCount(@Param("flag") int flag);
+
+    void updateReserve(@Param("outfitId") String outfitId);
+
 }

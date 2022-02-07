@@ -5,8 +5,10 @@
     <resultMap id="itemDataMap" type="cn.yz.clothManagement.entity.ItemData">
         <id column="id" property="id" jdbcType="INTEGER"/>
         <result column="item_id" property="itemId" jdbcType="VARCHAR"/>
+        <result column="cate_id" property="cateId" jdbcType="VARCHAR"/>
         <result column="pic_url" property="picUrl" jdbcType="VARCHAR"/>
         <result column="title" property="title" jdbcType="VARCHAR"/>
+        <result column="season" property="season" jdbcType="VARCHAR"/>
         <result column="desc" property="desc" jdbcType="VARCHAR"/>
     </resultMap>
     
@@ -35,5 +37,12 @@
     <update id="updateDescById">
         UPDATE item_data SET `desc` = #{desc} WHERE id = #{id}
     </update>
+
+    <select id="getCategoryId" parameterType="java.util.List" resultType="INTEGER">
+        SELECT category FROM cate_data WHERE `cate_id` in 
+        <foreach collection="cateIds" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
 
 </mapper>

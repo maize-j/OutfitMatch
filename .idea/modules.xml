@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/OutfitMatch.iml" filepath="$PROJECT_DIR$/.idea/OutfitMatch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OutfitMatch/ClothMangement/ClothMangement.iml" filepath="$PROJECT_DIR$/OutfitMatch/ClothMangement/ClothMangement.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OutfitMatch/OutfitMatch.iml" filepath="$PROJECT_DIR$/OutfitMatch/OutfitMatch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OutfitMatch/outfitmatch-commons/outfitmatch-commons.iml" filepath="$PROJECT_DIR$/OutfitMatch/outfitmatch-commons/outfitmatch-commons.iml" />
     </modules>
   </component>
 </project>

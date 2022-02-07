@@ -39,16 +39,24 @@ public class ItemDataTest {
     public void testOutfitData_train() throws IOException {
         itemDataService.getOutfitData(0);
     }
+    @Test
+    public void testOutfitData_valid() throws IOException {
+        itemDataService.getOutfitData(1);
+    }
+    @Test
+    public void testOutfitData_test() throws IOException {
+        itemDataService.getOutfitData(2);
+    }
 
     //检验数据集下载的是否正确
     @Test
     public void testCheck() throws IOException {
         /**训练集下载是否正确*/
         outfitDataService.checkDownLoad(0);
-        /**验证集下载是否正确*/
-        outfitDataService.checkDownLoad(1);
-        /**测试集下载是否正确*/
-        outfitDataService.checkDownLoad(2);
+//        /**验证集下载是否正确*/
+//        outfitDataService.checkDownLoad(1);
+//        /**测试集下载是否正确*/
+//        outfitDataService.checkDownLoad(2);
     }
 
     //下载数据集中的图片，
@@ -77,10 +85,53 @@ public class ItemDataTest {
 
     }
 
+    @Test
+    public void downloadTest() throws InterruptedException {
+
+        ExecutorService executorService = Executors.newFixedThreadPool(100);
+        CountDownLatch latch = new CountDownLatch(100);
+        for(int i = 0;i<100;i++){
+            executorService.submit(() -> {
+                System.out.println(Thread.currentThread().getName() + "-执行了");
+                try {
+                    itemDataService.download("E:\\work\\研三\\毕业\\python_workspace\\polyvore\\data\\images\\test_no_dup/",
+                            "E:\\work\\研三\\毕业\\python_workspace\\polyvore\\log\\test", "test");
+                    latch.countDown();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
+        }
+        latch.await();
+
+    }
+
+    @Test
+    public void downloadValid() throws InterruptedException {
+
+        ExecutorService executorService = Executors.newFixedThreadPool(100);
+        CountDownLatch latch = new CountDownLatch(100);
+        for(int i = 0;i<100;i++){
+            executorService.submit(() -> {
+                System.out.println(Thread.currentThread().getName() + "-执行了");
+                try {
+                    itemDataService.download("E:\\work\\研三\\毕业\\python_workspace\\polyvore\\data\\images\\valid_no_dup/",
+                            "E:\\work\\研三\\毕业\\python_workspace\\polyvore\\log\\valid", "valid");
+                    latch.countDown();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
+        }
+        latch.await();
+
+    }
+
     //删除数据集，flag为数据集标识，0训练，1验证，2测试
     //count为搭配包含单品数，3件的保留1/5，其余的保留1/3
     @Test
     public void testDelDateSet() throws IOException {
-        outfitDataService.delDateSet(0,3);
+        outfitDataService.delDateSet(0);
     }
+
 }

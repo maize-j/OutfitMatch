@@ -15,7 +15,7 @@ import java.util.List;
 @Service
 public interface IOmClothService {
 
-    List<OmCloth> getClothByUser(int user);
+    List<OmCloth> getAllClothByUser(int userId);
 
     List<OmCloth> getClothByUserAndCate(int userId,int categoryId);
 }
