@@ -20,7 +20,9 @@ public interface IOmSysRoleDao {
     /**获取所有的角色*/
     List<OmSysRole> getFullRole();
     /**根据角色获得权限*/
-    List<OmSysPermission> getPermissionByRole(@Param("roleId") int roleId);
+    List<OmSysPermission> getParentPermissionByRole(@Param("roleId") int roleId);
+
+    List<OmSysPermission> getPermissionByRole(@Param("roleId") int roleId,@Param("parentId")int parent);
     /**为角色添加权限*/
     void insert(int roleId,int permissionId);
     /**删除角色权限*/

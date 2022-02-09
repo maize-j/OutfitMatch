@@ -21,13 +21,12 @@ import java.io.IOException;
 public class CORSFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        System.out.println("CORSFilter->doFilter");
         HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
         HttpServletResponse httpServletResponse = (HttpServletResponse) servletResponse;
         //解决跨域问题
         httpServletResponse.setHeader("Access-control-Allow-Origin", "*");
         httpServletResponse.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
-        httpServletResponse.setHeader("Access-Control-Allow-Headers", "Content-Type, Access-Token, Authorization");
+        httpServletResponse.setHeader("Access-Control-Allow-Headers", "Content-Type, Access-Token, Authorization, user_access_token");
         httpServletResponse.setHeader("Access-Control-Allow-Credentials", "true");
         if (httpServletRequest.getMethod().equals("OPTIONS")) {
             httpServletResponse.setStatus(HttpServletResponse.SC_OK);

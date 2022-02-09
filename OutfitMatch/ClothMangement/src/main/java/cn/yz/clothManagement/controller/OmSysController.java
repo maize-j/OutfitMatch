@@ -4,10 +4,12 @@ import cn.yz.clothManagement.config.redis.RedisUtil;
 import cn.yz.clothManagement.dao.IOmSysLogDao;
 import cn.yz.clothManagement.dao.IOmSysUserDao;
 import cn.yz.clothManagement.entity.*;
+import cn.yz.clothManagement.service.IOmSysUserService;
 import cn.yz.clothManagement.utils.CommonConstant;
 import cn.yz.clothManagement.utils.CommonUtil;
 import cn.yz.clothManagement.utils.JWTUtil;
 import cn.yz.clothManagement.utils.PasswordUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -30,6 +32,9 @@ public class OmSysController {
 
     @Resource
     private IOmSysLogDao omSysLogDao;
+
+    @Autowired
+    private IOmSysUserService omSysUserService;
 
     @PostMapping("/sys/registery")
     public CommonResult<String> registery(@RequestBody OmSysUser omSysUser){
@@ -72,14 +77,7 @@ public class OmSysController {
 
     @GetMapping("/sys/getPermession")
     public CommonResult<Object> getPermession(@RequestParam("username") String username){
-
-//        if(){
-//
-//            return new CommonResult<>(StatusCode.SUCCESS,null);
-//        }
-        return new CommonResult<>(StatusCode.EMPTY_ERROR,"用户名不存在");
-
-
+        return omSysUserService.getPermissionByUser(username);
     }
 
 }

@@ -28,7 +28,6 @@ public class JwtFilter extends BasicHttpAuthenticationFilter {
 
     @Override
     protected boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue) {
-        System.out.println("ShiroFilter->isAccessAllowed");
         try {
             executeLogin(request, response);
             return true;
@@ -42,7 +41,6 @@ public class JwtFilter extends BasicHttpAuthenticationFilter {
      */
     @Override
     protected boolean executeLogin(ServletRequest request, ServletResponse response) {
-        System.out.println("ShiroFilter->executeLogin");
         HttpServletRequest httpServletRequest = (HttpServletRequest) request;
         String userToken = httpServletRequest.getHeader(CommonConstant.USER_ACCESS_TOKEN);
         if(CommonUtil.isEmpty(userToken)){
@@ -66,7 +64,6 @@ public class JwtFilter extends BasicHttpAuthenticationFilter {
 //     */
 //    @Override
 //    protected boolean preHandle(ServletRequest request, ServletResponse response) throws Exception {
-//        System.out.println("JwtFilter->preHandle");
 //        HttpServletRequest httpServletRequest = (HttpServletRequest) request;
 //        HttpServletResponse httpServletResponse = (HttpServletResponse) response;
 ////        if(allowOrigin){

@@ -20,10 +20,16 @@
         SELECT * FROM om_sys_role
     </select>
 
+    <select id="getParentPermissionByRole" resultMap="omSysPermissionMap">
+        SELECT *
+        FROM om_sys_permission
+        WHERE permission_id in (SELECT permission_id FROM om_sys_role_permission WHERE role_id = #{roleId} and parent_id IS NULL)
+    </select>
+
     <select id="getPermissionByRole" resultMap="omSysPermissionMap">
         SELECT *
         FROM om_sys_permission
-        WHERE permission_id in (SELECT permission_id FROM om_sys_role_permission WHERE role_id = #{roleId})
+        WHERE permission_id in (SELECT permission_id FROM om_sys_role_permission WHERE role_id = #{roleId} and parent_id = #{parentId})
     </select>
 
     <insert id="insert">

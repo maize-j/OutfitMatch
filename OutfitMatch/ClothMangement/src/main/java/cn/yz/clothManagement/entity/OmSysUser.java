@@ -10,6 +10,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 /**
  * TODO
@@ -25,6 +26,8 @@ public class OmSysUser implements Serializable {
     private int userId;
     private String username;
     private String password;
+    /**头像*/
+    private String photo;
     private String salt;
     private String nickname;
     private int delFlag;
@@ -35,6 +38,8 @@ public class OmSysUser implements Serializable {
     @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date updateTime;
     private List<OmSysRole> roles;
+
+    private List<Map<String, List<Map<String, String>>>> permissions;
 
     public OmSysUser(String username,String password,String salt){
         this.username = username;

@@ -30,7 +30,7 @@
 
     <dependencyManagement>
         <dependencies>
-            <!--spring boot2.2.2-->
+            <!--spring boot2.4-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>

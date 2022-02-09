@@ -39,14 +39,6 @@ public class ItemDataTest {
     public void testOutfitData_train() throws IOException {
         itemDataService.getOutfitData(0);
     }
-    @Test
-    public void testOutfitData_valid() throws IOException {
-        itemDataService.getOutfitData(1);
-    }
-    @Test
-    public void testOutfitData_test() throws IOException {
-        itemDataService.getOutfitData(2);
-    }
 
     //检验数据集下载的是否正确
     @Test
@@ -75,48 +67,6 @@ public class ItemDataTest {
                 try {
                     itemDataService.download("E:\\work\\研三\\毕业\\python_workspace\\polyvore\\data\\images\\train_no_dup/",
                             "E:\\work\\研三\\毕业\\python_workspace\\polyvore\\log\\train", "train");
-                    latch.countDown();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            });
-        }
-        latch.await();
-
-    }
-
-    @Test
-    public void downloadTest() throws InterruptedException {
-
-        ExecutorService executorService = Executors.newFixedThreadPool(100);
-        CountDownLatch latch = new CountDownLatch(100);
-        for(int i = 0;i<100;i++){
-            executorService.submit(() -> {
-                System.out.println(Thread.currentThread().getName() + "-执行了");
-                try {
-                    itemDataService.download("E:\\work\\研三\\毕业\\python_workspace\\polyvore\\data\\images\\test_no_dup/",
-                            "E:\\work\\研三\\毕业\\python_workspace\\polyvore\\log\\test", "test");
-                    latch.countDown();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            });
-        }
-        latch.await();
-
-    }
-
-    @Test
-    public void downloadValid() throws InterruptedException {
-
-        ExecutorService executorService = Executors.newFixedThreadPool(100);
-        CountDownLatch latch = new CountDownLatch(100);
-        for(int i = 0;i<100;i++){
-            executorService.submit(() -> {
-                System.out.println(Thread.currentThread().getName() + "-执行了");
-                try {
-                    itemDataService.download("E:\\work\\研三\\毕业\\python_workspace\\polyvore\\data\\images\\valid_no_dup/",
-                            "E:\\work\\研三\\毕业\\python_workspace\\polyvore\\log\\valid", "valid");
                     latch.countDown();
                 } catch (IOException e) {
                     e.printStackTrace();

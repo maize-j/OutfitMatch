@@ -1,5 +1,6 @@
 package cn.yz.clothManagement.service;
 
+import cn.yz.clothManagement.entity.CommonResult;
 import cn.yz.clothManagement.entity.OmSysUser;
 
 /**
@@ -12,6 +13,6 @@ import cn.yz.clothManagement.entity.OmSysUser;
 public interface IOmSysUserService {
     OmSysUser getUserByName(String username);
 
-
+    CommonResult<Object> getPermissionByUser(String username);
 
 }
