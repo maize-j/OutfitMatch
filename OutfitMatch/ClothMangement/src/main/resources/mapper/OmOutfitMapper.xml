@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.yz.clothManagement.dao.IOmOutfitDao">
+
+    <resultMap id="omOutfitMap" type="cn.yz.clothManagement.entity.OmOutfit">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="outfit_id" property="outfitId" jdbcType="BIGINT"/>
+        <result column="user_id" property="userId" jdbcType="BIGINT"/>
+        <collection property="clothList" ofType="cn.yz.clothManagement.entity.OmCloth">
+            <id column="cloth_id" property="clothId" jdbcType="BIGINT"/>
+            <result column="cloth_uri" property="clothUri" jdbcType="VARCHAR"/>
+            <result column="category_id" property="categoryId" jdbcType="BIGINT"/>
+            <result column="user_id" property="userId" jdbcType="BIGINT"/>
+            <result column="cloth_season" property="clothSeason" jdbcType="CHAR" javaType="int"/>
+            <result column="cloth_desc" property="desc" jdbcType="VARCHAR"/>
+            <result column="del_flag" property="delFlag" jdbcType="CHAR" javaType="int"/>
+            <result column="create_time" property="createTime" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+            <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+        </collection>
+    </resultMap>
+
+    <select id="getOutfitByUserId" resultMap="omOutfitMap">
+        SELECT om_outfit.*,om_cloth.*
+        FROM om_outfit INNER JOIN om_cloth on om_cloth.cloth_id = om_outfit.cloth_id
+        WHERE om_outfit.user_id = #{userId}
+    </select>
+
+</mapper>

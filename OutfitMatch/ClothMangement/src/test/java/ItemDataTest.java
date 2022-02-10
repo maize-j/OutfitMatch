@@ -1,4 +1,7 @@
 import cn.yz.clothManagement.ClothMangementMain;
+import cn.yz.clothManagement.dao.IOmOutfitDao;
+import cn.yz.clothManagement.entity.OmCloth;
+import cn.yz.clothManagement.entity.OmOutfit;
 import cn.yz.clothManagement.service.IItemDataService;
 import cn.yz.clothManagement.service.IOutfitDataService;
 import org.junit.Test;
@@ -32,6 +35,9 @@ public class ItemDataTest {
 
     @Resource
     private IOutfitDataService outfitDataService;
+
+    @Resource
+    private IOmOutfitDao omOutfitDao;
 
 
     //生成json文件，flag为数据集标识，0训练，1验证，2测试
@@ -82,6 +88,19 @@ public class ItemDataTest {
     @Test
     public void testDelDateSet() throws IOException {
         outfitDataService.delDateSet(0);
+    }
+
+    @Test
+    public void testGetOutfitByUserId(){
+        List<OmOutfit> outfitByUserId = omOutfitDao.getOutfitByUserId(1);
+        int i = 0;
+        for(OmOutfit omOutfit:outfitByUserId){
+            System.out.println(i++);
+            List<OmCloth> clothList = omOutfit.getClothList();
+            for(OmCloth omCloth:clothList){
+                System.out.println(omCloth);
+            }
+        }
     }
 
 }
