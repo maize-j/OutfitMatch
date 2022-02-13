@@ -17,7 +17,6 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class OmOutfit {
-    private int id;
     private int outfitId;
     private int userId;
     private List<OmCloth> clothList;

@@ -90,17 +90,5 @@ public class ItemDataTest {
         outfitDataService.delDateSet(0);
     }
 
-    @Test
-    public void testGetOutfitByUserId(){
-        List<OmOutfit> outfitByUserId = omOutfitDao.getOutfitByUserId(1);
-        int i = 0;
-        for(OmOutfit omOutfit:outfitByUserId){
-            System.out.println(i++);
-            List<OmCloth> clothList = omOutfit.getClothList();
-            for(OmCloth omCloth:clothList){
-                System.out.println(omCloth);
-            }
-        }
-    }
 
 }

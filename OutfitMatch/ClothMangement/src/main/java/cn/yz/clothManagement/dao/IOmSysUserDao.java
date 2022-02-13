@@ -18,7 +18,7 @@ import java.util.List;
 public interface IOmSysUserDao {
 
     /**新增*/
-    void insert(OmSysUser user);
+    int insert(OmSysUser user);
     /**根据用户名获取用户*/
     OmSysUser getUserByName(@Param("username") String username);
     /**根据用户Id获得角色*/

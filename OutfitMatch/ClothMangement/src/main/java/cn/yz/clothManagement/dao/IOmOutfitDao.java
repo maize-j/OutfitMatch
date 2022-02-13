@@ -1,5 +1,6 @@
 package cn.yz.clothManagement.dao;
 
+import cn.yz.clothManagement.entity.OmCloth;
 import cn.yz.clothManagement.entity.OmOutfit;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -16,6 +17,8 @@ import java.util.List;
 @Mapper
 public interface IOmOutfitDao {
 
-    List<OmOutfit> getOutfitByUserId(@Param("userId") int userId);
+    List<Integer> getOutfitByUserId(@Param("userId") int userId);
+
+    List<OmCloth> getClothByOutfitId(@Param("outfitId") int outfitId);
 
 }

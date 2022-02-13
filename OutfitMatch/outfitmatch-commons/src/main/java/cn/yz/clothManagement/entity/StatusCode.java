@@ -11,7 +11,8 @@ public enum StatusCode {
     SUCCESS(200, "success"),
     ERROR(500, "server error"),
     LOGIN_ERROR(4,"校验错误"),
-    EMPTY_ERROR(0, "空值错误");
+    EMPTY_ERROR(0, "空值错误"),
+    USER_ERROR(1,"用户已存在");
 
     // 成员变量
     private int code;

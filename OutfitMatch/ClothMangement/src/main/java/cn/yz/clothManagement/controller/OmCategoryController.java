@@ -23,13 +23,13 @@ public class OmCategoryController {
     @Resource
     private IOmCategoryDao omCategoryDao;
 
-    @GetMapping("/getCategory")
+    @GetMapping("/category/getCategory")
     public CommonResult<List<String>> getCategory(){
         List<String> fullCateName = omCategoryDao.getFullCateName();
         return new CommonResult<>(StatusCode.SUCCESS,fullCateName);
     }
 
-    @GetMapping("/getAccCategoey")
+    @GetMapping("/category/getAccCategoey")
     public CommonResult<List<String>> getAccCategoey(@RequestParam("categoryName") String categoryName){
         List<String> accCateNameByCateName = omCategoryDao.getAccCateNameByCateName(categoryName);
         return new CommonResult<>(StatusCode.SUCCESS,accCateNameByCateName);

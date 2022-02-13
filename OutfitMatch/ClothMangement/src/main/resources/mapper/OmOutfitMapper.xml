@@ -19,10 +19,29 @@
         </collection>
     </resultMap>
 
-    <select id="getOutfitByUserId" resultMap="omOutfitMap">
-        SELECT om_outfit.*,om_cloth.*
-        FROM om_outfit INNER JOIN om_cloth on om_cloth.cloth_id = om_outfit.cloth_id
-        WHERE om_outfit.user_id = #{userId}
+    <resultMap id="clothMap" type="cn.yz.clothManagement.entity.OmCloth">
+        <id column="cloth_id" property="clothId" jdbcType="BIGINT"/>
+        <result column="cloth_uri" property="clothUri" jdbcType="VARCHAR"/>
+        <result column="category_id" property="categoryId" jdbcType="BIGINT"/>
+        <result column="user_id" property="userId" jdbcType="BIGINT"/>
+        <result column="cloth_season" property="clothSeason" jdbcType="CHAR" javaType="int"/>
+        <result column="cloth_desc" property="desc" jdbcType="VARCHAR"/>
+        <result column="del_flag" property="delFlag" jdbcType="CHAR" javaType="int"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+    </resultMap>
+
+    <select id="getOutfitByUserId" resultType="INTEGER">
+        SELECT outfit_id
+        FROM om_outfit
+        WHERE user_id = #{userId}
+        GROUP BY outfit_id
+    </select>
+
+    <select id="getClothByOutfitId" resultMap="clothMap">
+        SELECT *
+        FROM om_cloth
+        WHERE cloth_id in (SELECT cloth_id FROM om_outfit WHERE outfit_id = #{outfitId})
     </select>
 
 </mapper>

@@ -24,8 +24,9 @@ public class CommonConstant {
 
     /**前端请求头中token信息*/
     public static final String USER_ACCESS_TOKEN = "user_access_token";
+//    public static final String USER_ACCESS_TOKEN = "Authorization";
 
     /**存放服装图片的位置*/
-    public static final String CLOTH_PIC_PATH = "E:\\work\\研三\\毕业\\python_workspace\\OutfitMatch\\ClothMangement\\src\\main\\resources\\templates\\static\\clothPic/";
+    public static final String CLOTH_PIC_PATH = "E:\\work\\研三\\毕业\\python_workspace\\OutfitMatch\\OutfitMatch\\ClothMangement\\src\\main\\resources\\static\\images\\";
 
 }

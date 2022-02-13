@@ -1,5 +1,7 @@
 import cn.yz.clothManagement.ClothMangementMain;
+import cn.yz.clothManagement.controller.OmSysController;
 import cn.yz.clothManagement.dao.IOmSysUserDao;
+import cn.yz.clothManagement.entity.CommonResult;
 import cn.yz.clothManagement.entity.OmSysRole;
 import cn.yz.clothManagement.entity.OmSysUser;
 import org.junit.Test;
@@ -24,6 +26,20 @@ public class OmSysUserTest {
 
     @Resource
     private IOmSysUserDao omSysUserDao;
+
+    @Resource
+    private OmSysController omSysController;
+
+    @Test
+    public void testRegistery(){
+        OmSysUser omSysUser = new OmSysUser();
+        omSysUser.setUsername("maize1");
+        omSysUser.setPassword("123");
+        omSysUser.setNickname("maize");
+        omSysUser.setSex(1);
+        CommonResult<String> registery = omSysController.registery(omSysUser);
+        System.out.println(registery);
+    }
 
     @Test
     public void testGetUserByUserName(){

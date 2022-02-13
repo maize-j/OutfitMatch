@@ -1,5 +1,6 @@
 package cn.yz.clothManagement.controller;
 
+import cn.hutool.core.date.DateTime;
 import cn.yz.clothManagement.config.redis.RedisUtil;
 import cn.yz.clothManagement.dao.IOmSysLogDao;
 import cn.yz.clothManagement.dao.IOmSysUserDao;
@@ -36,17 +37,35 @@ public class OmSysController {
     @Autowired
     private IOmSysUserService omSysUserService;
 
+
+
     @PostMapping("/sys/registery")
     public CommonResult<String> registery(@RequestBody OmSysUser omSysUser){
 
         //不用判空了，前端校验了
         String username = omSysUser.getUsername();
+        OmSysUser userByName = omSysUserDao.getUserByName(username);
+        if(CommonUtil.isNotEmpty(userByName)){
+            return new CommonResult<>(StatusCode.USER_ERROR,"当前用户名已存在");
+        }
         String password = omSysUser.getPassword();
         String salt = CommonUtil.randomGen(8);
 
         String encrypt = PasswordUtil.encrypt(username, password, salt);
-        OmSysUser user = new OmSysUser(username, encrypt, salt);
-        omSysUserDao.insert(user);
+        omSysUser.setPassword(encrypt);
+        omSysUser.setSalt(salt);
+        omSysUser.setCreateTime(new DateTime());
+        omSysUserDao.insert(omSysUser);
+        int userId = omSysUser.getUserId();
+        System.out.println("userId:"+userId);
+        //根据性别为用户设置角色
+        int sex = omSysUser.getSex();
+        if(sex == 0){
+            omSysUserDao.insertRoleToUser(userId,3);
+        }else{
+            omSysUserDao.insertRoleToUser(userId,2);
+        }
+
         return new CommonResult<>(StatusCode.SUCCESS,"注册成功");
     }
 

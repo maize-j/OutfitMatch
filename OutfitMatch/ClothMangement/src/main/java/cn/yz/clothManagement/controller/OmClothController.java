@@ -50,7 +50,7 @@ public class OmClothController {
      *@throws
      *@date  
      */
-    @GetMapping("/getclothByCate")
+    @GetMapping("/cloth/getclothByCate")
     public CommonResult<List<OmCloth>> getClothByCate(@RequestParam("categoryAccName") String categoryAccName){
         int userId = ShiroUtil.getUserIdBySubject();
         int categoryId = omCategoryDao.getCateIdByAccName(categoryAccName);
@@ -59,7 +59,7 @@ public class OmClothController {
         return result;
     }
 
-    @PostMapping("/uploadPic")
+    @PostMapping("/cloth/uploadPic")
     public CommonResult<String> upload(@RequestParam("clothPicFile") MultipartFile multipartFile){
         int userId = ShiroUtil.getUserIdBySubject();
         try {
@@ -81,7 +81,7 @@ public class OmClothController {
         }
     }
 
-    @PostMapping("/addCloth")
+    @PostMapping("/cloth/addCloth")
     public CommonResult<String> addCloth(@RequestBody OmCloth omCloth){
         //前端校验，不用判空
         String categoryAccName = omCloth.getCategoryAccName();
@@ -97,7 +97,7 @@ public class OmClothController {
         }
     }
 
-    @DeleteMapping("/deleteClothPic")
+    @DeleteMapping("/cloth/deleteClothPic")
     public CommonResult<String> deleteClothPic(@RequestParam("clothUri") String clothUri){
 
         File file = new File(clothUri);
@@ -107,7 +107,7 @@ public class OmClothController {
         return new CommonResult<>(StatusCode.SUCCESS,"删除成功");
     }
 
-    @DeleteMapping("/deleteCloth")
+    @DeleteMapping("/cloth/deleteCloth")
     public CommonResult<String> deleteCloth(@RequestParam("clothId") int clothId){
         try {
             omClothDao.delete(clothId);

@@ -30,6 +30,8 @@ public class OmSysUser implements Serializable {
     private String photo;
     private String salt;
     private String nickname;
+    /**0男，1女*/
+    private int sex;
     private int delFlag;
     @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd HH:mm:ss")
     @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
