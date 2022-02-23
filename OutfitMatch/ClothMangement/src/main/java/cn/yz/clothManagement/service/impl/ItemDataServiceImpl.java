@@ -49,12 +49,12 @@ public class ItemDataServiceImpl implements IItemDataService {
     public static LinkedList<String> validOutfitQueue;
     public static LinkedList<String> testOutfitQueue;
 
-    @PostConstruct
-    public void init(){
-        trainOutfitQueue = outfitDataDao.getUnDownloadOutfitIds(0);
-        validOutfitQueue = outfitDataDao.getUnDownloadOutfitIds(1);
-        testOutfitQueue = outfitDataDao.getUnDownloadOutfitIds(2);
-    }
+//    @PostConstruct
+//    public void init(){
+//        trainOutfitQueue = outfitDataDao.getUnDownloadOutfitIds(0);
+//        validOutfitQueue = outfitDataDao.getUnDownloadOutfitIds(1);
+//        testOutfitQueue = outfitDataDao.getUnDownloadOutfitIds(2);
+//    }
 
 
     @Override

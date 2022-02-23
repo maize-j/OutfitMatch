@@ -2,26 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61f6b8ba-c5b2-49c9-8413-4bff8bb9f6b4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/config/configurer/ImageConfigurer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/controller/OmOutfitController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/service/IOmOutfitService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/service/impl/OmOutfitServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/test/java/ClothTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/entity/OmClothRedis.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/entity/dto/OmClothDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/entity/enums/LogType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/OutfitMatch/images/e91a06539b93e4e1ed4bf90ac2a31484_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/OutfitMatch/images/e91a06539b93e4e1ed4bf90ac2a31484_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/OutfitMatch/images/e91a06539b93e4e1ed4bf90ac2a31484_4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/OutfitMatch/images/ead1f179ef9d8af8d34f48a887961dc2_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/OutfitMatch/images/ead1f179ef9d8af8d34f48a887961dc2_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OutfitMatch/ClothMangement/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/config/shiro/MyShiroRealm.java" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/config/shiro/MyShiroRealm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/config/shiro/ShiroConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/config/shiro/ShiroConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/controller/OmCategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/controller/OmCategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/controller/ClothManagementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/controller/ClothManagementController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/controller/OmClothController.java" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/controller/OmClothController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/controller/OmSysController.java" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/controller/OmSysController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/dao/IOmOutfitDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/dao/IOmOutfitDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/dao/IOmSysUserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/dao/IOmSysUserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/entity/OmOutfit.java" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/entity/OmOutfit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/entity/OmSysUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/entity/OmSysUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/dao/IOmClothDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/dao/IOmClothDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/entity/OmCloth.java" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/entity/OmCloth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/entity/OmSysLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/entity/OmSysLog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/service/IOmClothService.java" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/service/IOmClothService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/service/impl/ItemDataServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/service/impl/ItemDataServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/service/impl/OmClothServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/service/impl/OmClothServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/utils/CommonConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/utils/CommonConstant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/resources/mapper/OmOutfitMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/resources/mapper/OmOutfitMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/resources/mapper/OmSysUserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/resources/mapper/OmSysUserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/test/java/ItemDataTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/test/java/ItemDataTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/test/java/OmSysUserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/test/java/OmSysUserTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OutfitMatch/outfitmatch-commons/src/main/java/cn/yz/clothManagement/entity/StatusCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/outfitmatch-commons/src/main/java/cn/yz/clothManagement/entity/StatusCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/resources/mapper/OmClothMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/resources/mapper/OmClothMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/test/java/ClothTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/test/java/ClothTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/test/java/CommonTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/test/java/CommonTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/test/java/OmSysLogTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/test/java/OmSysLogTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +75,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/resources/static/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/OutfitMatch/images" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -87,45 +92,46 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\work\研三\毕业\python_workspace\OutfitMatch\OutfitMatch\images" />
       <recent name="E:\work\研三\毕业\python_workspace\OutfitMatch\OutfitMatch\ClothMangement\src\main\resources\static\images" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.ClothMangementMain">
-    <configuration name="ClothTest.testCloth" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ClothTest.testDelCloth" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ClothMangement" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="ClothTest" />
-      <option name="METHOD_NAME" value="testCloth" />
+      <option name="METHOD_NAME" value="testDelCloth" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ClothTest.testGetOutfitByUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ClothTest.testGetClothByRedis" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ClothMangement" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="ClothTest" />
-      <option name="METHOD_NAME" value="testGetOutfitByUser" />
+      <option name="METHOD_NAME" value="testGetClothByRedis" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ItemDataTest.testGetOutfitByUserId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CommonTest.sysPath" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ClothMangement" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ItemDataTest" />
-      <option name="METHOD_NAME" value="testGetOutfitByUserId" />
+      <option name="MAIN_CLASS_NAME" value="CommonTest" />
+      <option name="METHOD_NAME" value="sysPath" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OmSysUserTest.testRegistery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CommonTest.testSync" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ClothMangement" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="OmSysUserTest" />
-      <option name="METHOD_NAME" value="testRegistery" />
+      <option name="MAIN_CLASS_NAME" value="CommonTest" />
+      <option name="METHOD_NAME" value="testSync" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -141,10 +147,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.ClothMangementMain" />
-        <item itemvalue="JUnit.ClothTest.testGetOutfitByUser" />
-        <item itemvalue="JUnit.ClothTest.testCloth" />
-        <item itemvalue="JUnit.OmSysUserTest.testRegistery" />
-        <item itemvalue="JUnit.ItemDataTest.testGetOutfitByUserId" />
+        <item itemvalue="JUnit.CommonTest.sysPath" />
+        <item itemvalue="JUnit.ClothTest.testDelCloth" />
+        <item itemvalue="JUnit.ClothTest.testGetClothByRedis" />
+        <item itemvalue="JUnit.CommonTest.testSync" />
       </list>
     </recent_temporary>
   </component>
@@ -180,7 +186,13 @@
       <workItem from="1644403551156" duration="56000" />
       <workItem from="1644481011461" duration="5092000" />
       <workItem from="1644643975830" duration="17132000" />
-      <workItem from="1644734142896" duration="280000" />
+      <workItem from="1644734142896" duration="3559000" />
+      <workItem from="1644752980885" duration="3775000" />
+      <workItem from="1644932062713" duration="60000" />
+      <workItem from="1644932632047" duration="80000" />
+      <workItem from="1645107266785" duration="11000" />
+      <workItem from="1645351582391" duration="40542000" />
+      <workItem from="1645606411484" duration="284000" />
     </task>
     <servers />
   </component>
@@ -192,10 +204,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="483" y="215" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1644481334793" />
-    <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser" timestamp="1644655310700">
+    <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser" timestamp="1645424257861">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1644655310700" />
+    <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1645424257861" />
     <state x="356" y="6" key="CommitChangelistDialog2" timestamp="1642759651364">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -204,53 +216,73 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1644398080873" />
-    <state width="1493" height="232" key="GridCell.Tab.0.bottom" timestamp="1644679481510">
+    <state width="1493" height="242" key="GridCell.Tab.0.bottom" timestamp="1645540847207">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="232" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1644679481510" />
-    <state width="1493" height="232" key="GridCell.Tab.0.center" timestamp="1644679481510">
+    <state width="1493" height="242" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1645540847207" />
+    <state width="1493" height="242" key="GridCell.Tab.0.center" timestamp="1645540847207">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="232" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1644679481510" />
-    <state width="1493" height="232" key="GridCell.Tab.0.left" timestamp="1644679481510">
+    <state width="1493" height="242" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1645540847207" />
+    <state width="1493" height="242" key="GridCell.Tab.0.left" timestamp="1645540847207">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="232" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1644679481510" />
-    <state width="1493" height="232" key="GridCell.Tab.0.right" timestamp="1644679481510">
+    <state width="1493" height="242" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1645540847207" />
+    <state width="1493" height="242" key="GridCell.Tab.0.right" timestamp="1645540847207">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="232" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1644679481510" />
-    <state width="1493" height="246" key="GridCell.Tab.1.bottom" timestamp="1644679481482">
+    <state width="1493" height="242" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1645540847207" />
+    <state width="1493" height="242" key="GridCell.Tab.1.bottom" timestamp="1645540847207">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="246" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1644679481482" />
-    <state width="1493" height="246" key="GridCell.Tab.1.center" timestamp="1644679481481">
+    <state width="1493" height="242" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1645540847207" />
+    <state width="1493" height="242" key="GridCell.Tab.1.center" timestamp="1645540847207">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="246" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1644679481481" />
-    <state width="1493" height="246" key="GridCell.Tab.1.left" timestamp="1644679481481">
+    <state width="1493" height="242" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1645540847207" />
+    <state width="1493" height="242" key="GridCell.Tab.1.left" timestamp="1645540847207">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="246" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1644679481481" />
-    <state width="1493" height="246" key="GridCell.Tab.1.right" timestamp="1644679481482">
+    <state width="1493" height="242" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1645540847207" />
+    <state width="1493" height="242" key="GridCell.Tab.1.right" timestamp="1645540847207">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="246" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1644679481482" />
-    <state x="449" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1644643989319">
+    <state width="1493" height="242" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1645540847207" />
+    <state width="1493" height="242" key="GridCell.Tab.2.bottom" timestamp="1645540847207">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="449" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1644643989319" />
+    <state width="1493" height="242" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1645540847207" />
+    <state width="1493" height="242" key="GridCell.Tab.2.center" timestamp="1645540847207">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="242" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1645540847207" />
+    <state width="1493" height="242" key="GridCell.Tab.2.left" timestamp="1645540847207">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="242" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1645540847207" />
+    <state width="1493" height="242" key="GridCell.Tab.2.right" timestamp="1645540847207">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="242" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1645540847207" />
+    <state x="449" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1644932640467">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="449" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1644932640467" />
     <state x="408" y="27" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1644677195373">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="408" y="27" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1536.824@0.0.1536.824" timestamp="1644677195373" />
-    <state x="447" y="150" width="675" height="524" key="find.popup" timestamp="1644676340819">
+    <state x="447" y="150" width="675" height="524" key="find.popup" timestamp="1645502991380">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="447" y="150" width="675" height="524" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1644676340819" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1644676364675">
+    <state x="447" y="150" width="675" height="524" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1645502991380" />
+    <state x="425" y="187" key="run.anything.popup" timestamp="1645352281526">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1644676364675" />
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1645352281526" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1645426080671">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1645426080671" />
   </component>
 </project>

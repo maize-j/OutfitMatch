@@ -27,6 +27,12 @@ public class CommonConstant {
 //    public static final String USER_ACCESS_TOKEN = "Authorization";
 
     /**存放服装图片的位置*/
-    public static final String CLOTH_PIC_PATH = "E:\\work\\研三\\毕业\\python_workspace\\OutfitMatch\\OutfitMatch\\ClothMangement\\src\\main\\resources\\static\\images\\";
+//    public static final String CLOTH_PIC_PATH = System.getProperty("user.dir")+"\\"+"src\\main\\resources\\static\\images\\";
+    public static final String CLOTH_PIC_PATH = "E:\\work\\研三\\毕业\\python_workspace\\OutfitMatch\\OutfitMatch\\images\\";
+
+    public static final long CLOTH_REDIS_EXPIRE_TIME = 60*60;
+
+    public static final String PIC_PATH = "http://localhost:8081/outfit_match/static/images/";
+
 
 }

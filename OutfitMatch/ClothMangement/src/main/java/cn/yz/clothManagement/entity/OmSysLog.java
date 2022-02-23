@@ -1,6 +1,7 @@
 package cn.yz.clothManagement.entity;
 
 import cn.hutool.core.date.DateTime;
+import cn.yz.clothManagement.entity.enums.LogType;
 import cn.yz.clothManagement.utils.CommonConstant;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -31,8 +32,8 @@ public class OmSysLog {
     @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd HH:mm:ss")
     @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date createTime;
-    public OmSysLog(int logType,String logContent,int userId,String username){
-        this.logType = logType;
+    public OmSysLog(LogType logType, String logContent, int userId, String username){
+        this.logType = logType.getType();
         this.logContent = logContent;
         this.userId = userId;
         this.username = username;

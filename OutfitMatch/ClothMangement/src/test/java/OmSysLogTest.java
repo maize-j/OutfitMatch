@@ -1,6 +1,7 @@
 import cn.yz.clothManagement.ClothMangementMain;
 import cn.yz.clothManagement.dao.IOmSysLogDao;
 import cn.yz.clothManagement.entity.OmSysLog;
+import cn.yz.clothManagement.entity.enums.LogType;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -25,7 +26,7 @@ public class OmSysLogTest {
 
     @Test
     public void testLogInsert() throws ParseException {
-        OmSysLog omSysLog = new OmSysLog(0, "登录成功", 1, "admin");
+        OmSysLog omSysLog = new OmSysLog(LogType.LOGIN, "登录成功", 1, "admin");
         System.out.println(omSysLog);
         omSysLogDao.insert(omSysLog);
     }

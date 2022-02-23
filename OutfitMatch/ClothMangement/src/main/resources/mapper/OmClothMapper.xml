@@ -6,8 +6,8 @@
         <id column="cloth_id" property="clothId" jdbcType="BIGINT"/>
         <result column="cloth_uri" property="clothUri" jdbcType="VARCHAR"/>
         <result column="category_id" property="categoryId" jdbcType="BIGINT"/>
-        <result column="user_id" property="user_id" jdbcType="BIGINT"/>
-        <result column="cloth_season" property="clothSeason" jdbcType="CHAR" javaType="int"/>
+        <result column="user_id" property="userId" jdbcType="BIGINT"/>
+        <result column="cloth_season" property="clothSeason" jdbcType="CHAR"/>
         <result column="cloth_desc" property="desc" jdbcType="VARCHAR"/>
         <result column="del_flag" property="delFlag" jdbcType="CHAR" javaType="int"/>
         <result column="create_time" property="createTime" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
@@ -16,7 +16,7 @@
 
     <insert id="insert" parameterType="cn.yz.clothManagement.entity.OmCloth" useGeneratedKeys="true" keyProperty="clothId"  keyColumn="cloth_id">
         INSERT INTO om_cloth( `cloth_uri`, `category_id`, `cloth_season`, `create_time`, `update_time`, `del_flag`, `cloth_desc`, `user_id`)
-        VALUES ( #{clothUri}, #{categoryId}, #{clothSeason}, #{createTime}, #{updateTime}, 0, #{clothDesc}, #{userId});
+        VALUES ( #{clothUri}, #{categoryId}, #{clothSeason}, #{createTime}, #{updateTime}, 0, #{desc}, #{userId});
     </insert>
     
     <select id="getClothByUser" resultMap="omClothMap">
@@ -31,8 +31,8 @@
         WHERE user_id = #{userId} AND category_id = #{categoryId} AND del_flag = 0
     </select>
     
-    <select id="">
-
+    <select id="getClothById" resultMap="omClothMap">
+        SELECT * FROM om_cloth WHERE cloth_id = #{clothId} AND del_flag = 0
     </select>
     
     <update id="delete">

@@ -5,6 +5,7 @@ import cn.yz.clothManagement.config.redis.RedisUtil;
 import cn.yz.clothManagement.dao.IOmSysLogDao;
 import cn.yz.clothManagement.dao.IOmSysUserDao;
 import cn.yz.clothManagement.entity.*;
+import cn.yz.clothManagement.entity.enums.LogType;
 import cn.yz.clothManagement.service.IOmSysUserService;
 import cn.yz.clothManagement.utils.CommonConstant;
 import cn.yz.clothManagement.utils.CommonUtil;
@@ -86,7 +87,7 @@ public class OmSysController {
             String token = JWTUtil.sign(username,password,encryptPassword);
             redisUtil.set(CommonConstant.REDIS_USER_TOKEN + username, token);
             redisUtil.expire(CommonConstant.REDIS_USER_TOKEN + username, CommonConstant.USER_TOKEN_EXPIRE_TIME);
-            omSysLogDao.insert(new OmSysLog(0,"登录成功",userByName.getUserId(),userByName.getUsername()));
+            omSysLogDao.insert(new OmSysLog(LogType.LOGIN,"登录成功",userByName.getUserId(),userByName.getUsername()));
             return new CommonResult<>(StatusCode.SUCCESS,token);
         }
 

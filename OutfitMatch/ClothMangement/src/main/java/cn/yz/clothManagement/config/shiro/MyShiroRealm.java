@@ -6,6 +6,7 @@ import cn.yz.clothManagement.entity.OmSysLog;
 import cn.yz.clothManagement.entity.OmSysPermission;
 import cn.yz.clothManagement.entity.OmSysRole;
 import cn.yz.clothManagement.entity.OmSysUser;
+import cn.yz.clothManagement.entity.enums.LogType;
 import cn.yz.clothManagement.service.IOmSysUserService;
 import cn.yz.clothManagement.utils.CommonConstant;
 import cn.yz.clothManagement.utils.CommonUtil;
@@ -115,7 +116,7 @@ public class MyShiroRealm extends AuthorizingRealm {
                 // 设置超时时间
                 redisUtil.set(CommonConstant.REDIS_USER_TOKEN + username, encrypt);
                 redisUtil.expire(CommonConstant.REDIS_USER_TOKEN + username, CommonConstant.USER_TOKEN_EXPIRE_TIME);
-                omSysLogDao.insert(new OmSysLog(1,"——————————用户在线操作，更新token保证不掉线—————————jwtTokenRefresh——————— ",0,username));
+                omSysLogDao.insert(new OmSysLog(LogType.OPERATE,"——————————用户在线操作，更新token保证不掉线—————————jwtTokenRefresh——————— ",0,username));
 //            log.debug("——————————用户在线操作，更新token保证不掉线—————————jwtTokenRefresh——————— "+ token);
             }
 

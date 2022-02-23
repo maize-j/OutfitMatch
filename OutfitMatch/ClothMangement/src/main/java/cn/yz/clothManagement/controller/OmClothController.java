@@ -14,6 +14,7 @@ import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Param;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -32,6 +33,7 @@ import java.util.UUID;
  * @date 2022/1/11 17:07
  */
 @RestController
+@Validated
 public class OmClothController {
 
     @Resource
@@ -55,6 +57,9 @@ public class OmClothController {
         int userId = ShiroUtil.getUserIdBySubject();
         int categoryId = omCategoryDao.getCateIdByAccName(categoryAccName);
         List<OmCloth> clothByCate = omClothService.getClothByUserAndCate(userId,categoryId);
+        for(OmCloth omCloth:clothByCate){
+            omCloth.setClothUri(CommonConstant.PIC_PATH+omCloth.getClothUri());
+        }
         CommonResult<List<OmCloth>> result = new CommonResult<>(StatusCode.SUCCESS, clothByCate);
         return result;
     }
@@ -75,26 +80,15 @@ public class OmClothController {
                 new File(filePath).mkdir();
             }
             multipartFile.transferTo(new File(filePath+fileName));
-            return new CommonResult<>(StatusCode.SUCCESS,"/outfit_match/static/images/"+fileName);
+            return new CommonResult<>(StatusCode.SUCCESS,fileName);
         }catch (IOException e) {
             return new CommonResult<>(StatusCode.ERROR,"上传失败");
         }
     }
 
     @PostMapping("/cloth/addCloth")
-    public CommonResult<String> addCloth(@RequestBody OmCloth omCloth){
-        //前端校验，不用判空
-        String categoryAccName = omCloth.getCategoryAccName();
-        int cateIdByAccName = omCategoryDao.getCateIdByAccName(categoryAccName);
-        omCloth.setCategoryId(cateIdByAccName);
-        int userId = ShiroUtil.getUserIdBySubject();
-        omCloth.setUserId(userId);
-        try {
-            int clothId = omClothDao.insert(omCloth);
-            return new CommonResult<>(StatusCode.SUCCESS,String.valueOf(clothId));
-        }catch (Exception e){
-            return new CommonResult<>(StatusCode.ERROR,"上传失败："+e.getMessage());
-        }
+    public CommonResult<String> addCloth(@RequestBody @Validated OmCloth omCloth){
+        return omClothService.insertCloth(omCloth);
     }
 
     @DeleteMapping("/cloth/deleteClothPic")
@@ -107,14 +101,20 @@ public class OmClothController {
         return new CommonResult<>(StatusCode.SUCCESS,"删除成功");
     }
 
-    @DeleteMapping("/cloth/deleteCloth")
-    public CommonResult<String> deleteCloth(@RequestParam("clothId") int clothId){
-        try {
-            omClothDao.delete(clothId);
+    @DeleteMapping("/cloth/deleteCloth/{clothId}")
+    public CommonResult<String> deleteCloth(@PathVariable("clothId") int clothId){
+        boolean b = omClothService.deleteClothById(clothId);
+        if(b){
             return new CommonResult<>(StatusCode.SUCCESS,"删除成功");
-        }catch (Exception e){
-            return new CommonResult<>(StatusCode.SUCCESS,"删除失败："+e.getMessage());
+        }else{
+            return new CommonResult<>(StatusCode.SUCCESS,"删除失败或服装不存在");
         }
     }
 
+    @GetMapping("/cloth/getClothById/{clothId}")
+    public CommonResult<OmCloth> getClothById(@PathVariable("clothId") int clothId){
+        OmCloth clothById = omClothDao.getClothById(clothId);
+        clothById.setClothUri(clothById+clothById.getClothUri());
+        return new CommonResult<>(StatusCode.SUCCESS,clothById);
+    }
 }

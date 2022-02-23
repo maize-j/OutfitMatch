@@ -39,6 +39,7 @@ public class ShiroConfig {
          * role 拥有某个角色权限才能访问
          */
         filterChainDefinitionMap.put("/static/**", "anon");
+        filterChainDefinitionMap.put("/testOptional", "anon");
         filterChainDefinitionMap.put("/getIP", "anon");
 //        filterChainDefinitionMap.put("/hello", "anon");
         filterChainDefinitionMap.put("/images/**", "anon");

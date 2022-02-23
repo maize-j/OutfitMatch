@@ -1,40 +1,41 @@
-package cn.yz.clothManagement.entity;
+package cn.yz.clothManagement.entity.dto;
 
-import cn.hutool.core.date.DateTime;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.validation.annotation.Validated;
 
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import java.io.Serializable;
 import java.util.Date;
+import java.util.Optional;
 
 /**
  * TODO
  *
  * @author 苞谷洁子
- * @ClassName OmCloth
- * @date 2022/1/10 21:43
+ * @ClassName OmClothDto
+ * @date 2022/2/20 22:09
  */
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Validated
-public class OmCloth implements Serializable {
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class OmClothDto {
     private int clothId;
-    @NotNull(message = "服装图片不能为空")
+    @NotNull(message = "服装uri不能为空")
     private String clothUri;
     private int userId;
     /**接收前端的分类名称*/
     private String categoryAccName;
-    @NotNull(message = "服装分类不能为空")
     private int categoryId;
     /**服装适用季节 0表示没有，1表示春，2表示夏，3表示秋，4表示冬*/
-    private char clothSeason;
-    private String desc;
+    private Optional<Integer> clothSeason;
+    private Optional<String> desc;
     @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd HH:mm:ss")
     @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date createTime;
