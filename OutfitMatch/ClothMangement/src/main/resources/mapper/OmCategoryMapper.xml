@@ -16,19 +16,21 @@
         FROM om_category
         WHERE del_flag = 0
         GROUP BY category_name
-        ORDER BY category_name
     </select>
     
-    <select id="getAccCateNameByCateName" resultType="String">
-        SELECT category_acc_name
+    <select id="getAccCateNameByCateName" resultType="String" resultMap="omCategoryMap">
+        SELECT category_id,category_acc_name
         FROM om_category
         WHERE category_name = #{categoryName} AND del_flag = 0
-        ORDER BY category_id
     </select>
 
     <select id="getCateIdByAccName" resultType="int">
         SELECT category_id
         FROM om_category WHERE category_acc_name = #{categoryAccName}
+    </select>
+
+    <select id="getCateNameById" resultType="String">
+        SELECT category_name FROM om_category WHERE category_id= #{categoryId}
     </select>
 
 </mapper>

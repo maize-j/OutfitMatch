@@ -5,6 +5,7 @@ import cn.yz.clothManagement.entity.OmCloth;
 import cn.yz.clothManagement.entity.OmOutfit;
 import cn.yz.clothManagement.entity.OutfitData;
 import cn.yz.clothManagement.service.IOmOutfitService;
+import cn.yz.clothManagement.utils.CommonConstant;
 import cn.yz.clothManagement.utils.CommonUtil;
 import org.springframework.stereotype.Service;
 
@@ -34,6 +35,9 @@ public class OmOutfitServiceImpl implements IOmOutfitService {
         List<OmOutfit> outfitList = new ArrayList<>();
         for(Integer num:outfitByUserId){
             List<OmCloth> clothByOutfitId = omOutfitDao.getClothByOutfitId(num);
+            for(OmCloth omCloth:clothByOutfitId){
+                omCloth.setClothUri(CommonConstant.PIC_PATH + omCloth.getClothUri());
+            }
             OmOutfit omOutfit = new OmOutfit(num,userId,clothByOutfitId);
             outfitList.add(omOutfit);
         }

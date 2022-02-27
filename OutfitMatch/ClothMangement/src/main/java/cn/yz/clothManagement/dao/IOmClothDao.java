@@ -27,4 +27,6 @@ public interface IOmClothDao {
     int delete(@Param("clothId") int clothId);
     /**根据服装id查询服装*/
     OmCloth getClothById(@Param("clothId")int clothId);
+    /**根据服装id修改服装*/
+    int update(OmCloth omCloth);
 }

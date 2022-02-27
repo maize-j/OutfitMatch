@@ -27,5 +27,7 @@ public interface IOmSysRoleDao {
     void insert(int roleId,int permissionId);
     /**删除角色权限*/
     void delete(int roleId,int permissionId);
+    /**根据用户获取角色*/
+    int getRoleByUser(int userId);
 
 }

@@ -7,12 +7,34 @@
         <result column="name" property="name" jdbcType="VARCHAR"/>
         <result column="parent_id" property="parentId" jdbcType="BIGINT"/>
         <result column="permission" property="permission" jdbcType="VARCHAR"/>
-        <result column="url" property="url" jdbcType="VARCHAR"/>
+        <result column="route" property="route" jdbcType="VARCHAR"/>
     </resultMap>
 
     <insert id="getFullRole" parameterType="cn.yz.clothManagement.entity.OmSysPermission">
         INSERT INTO om_sys_permission(`name`, `parent_id`,`permission`,`url`)
         VALUES (#{name},#{parentId},#{permission},#{url})
     </insert>
+
+    <select id="getPermisseionByCate" resultType="int">
+        SELECT permission_id FROM om_sys_permission
+        WHERE parent_id =(
+        SELECT permission_id
+        FROM om_sys_permission WHERE `name` = #{categoryName} AND parent_id IS NULL)
+    </select>
+
+    <select id="getPermisseionByRole" resultType="int">
+        SELECT permission_id
+        FROM om_sys_role_permission WHERE role_id = #{roleId} AND permission_id in
+        <foreach collection="permissions" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+    
+    <select id="getPermisseionByIds" resultMap="omSysPermissionMap">
+        SELECT * FROM om_sys_permission WHERE permission_id in
+        <foreach collection="permissions" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
 
 </mapper>

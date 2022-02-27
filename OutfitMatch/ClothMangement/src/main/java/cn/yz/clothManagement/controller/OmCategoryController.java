@@ -2,6 +2,7 @@ package cn.yz.clothManagement.controller;
 
 import cn.yz.clothManagement.dao.IOmCategoryDao;
 import cn.yz.clothManagement.entity.CommonResult;
+import cn.yz.clothManagement.entity.OmCategory;
 import cn.yz.clothManagement.entity.StatusCode;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,10 +30,9 @@ public class OmCategoryController {
         return new CommonResult<>(StatusCode.SUCCESS,fullCateName);
     }
 
-    @GetMapping("/category/getAccCategoey")
-    public CommonResult<List<String>> getAccCategoey(@RequestParam("categoryName") String categoryName){
-        List<String> accCateNameByCateName = omCategoryDao.getAccCateNameByCateName(categoryName);
+    @GetMapping("/category/getAccCategory")
+    public CommonResult<List<OmCategory>> getAccCategoey(@RequestParam("categoryName") String categoryName){
+        List<OmCategory> accCateNameByCateName = omCategoryDao.getAccCateNameByCateName(categoryName);
         return new CommonResult<>(StatusCode.SUCCESS,accCateNameByCateName);
     }
-
 }

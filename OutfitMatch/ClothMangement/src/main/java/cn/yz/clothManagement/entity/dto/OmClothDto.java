@@ -31,7 +31,7 @@ public class OmClothDto {
     private String clothUri;
     private int userId;
     /**接收前端的分类名称*/
-    private String categoryAccName;
+    private String categoryName;
     private int categoryId;
     /**服装适用季节 0表示没有，1表示春，2表示夏，3表示秋，4表示冬*/
     private Optional<Integer> clothSeason;

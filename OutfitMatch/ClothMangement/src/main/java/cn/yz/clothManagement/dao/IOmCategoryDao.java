@@ -1,5 +1,6 @@
 package cn.yz.clothManagement.dao;
 
+import cn.yz.clothManagement.entity.OmCategory;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -18,8 +19,10 @@ public interface IOmCategoryDao {
     /**获取所有的服装大类*/
     List<String> getFullCateName();
     /**根据服装大类获取详细分类*/
-    List<String> getAccCateNameByCateName(@Param("categoryName") String categoryName);
+    List<OmCategory> getAccCateNameByCateName(@Param("categoryName") String categoryName);
 
     int getCateIdByAccName(@Param("categoryAccName") String categoryAccName);
+
+    String getCateNameById(@Param("categoryId")int categoryId);
 
 }

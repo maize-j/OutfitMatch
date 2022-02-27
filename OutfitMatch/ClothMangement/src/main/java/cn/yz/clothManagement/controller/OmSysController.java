@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * TODO
@@ -98,6 +99,12 @@ public class OmSysController {
     @GetMapping("/sys/getPermession")
     public CommonResult<Object> getPermession(@RequestParam("username") String username){
         return omSysUserService.getPermissionByUser(username);
+    }
+
+    @GetMapping("/sys/getPermessionByCate")
+    public CommonResult<List<ChildrenRouterEntity>> getPermessionByCate(@RequestParam("categoryName") String categoryName){
+        List<ChildrenRouterEntity> permessionByCate = omSysUserService.getPermessionByCate(categoryName);
+        return new CommonResult<>(StatusCode.SUCCESS,permessionByCate);
     }
 
 }

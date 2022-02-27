@@ -1,7 +1,10 @@
 package cn.yz.clothManagement.service;
 
+import cn.yz.clothManagement.entity.ChildrenRouterEntity;
 import cn.yz.clothManagement.entity.CommonResult;
 import cn.yz.clothManagement.entity.OmSysUser;
+
+import java.util.List;
 
 /**
  * TODO
@@ -15,4 +18,5 @@ public interface IOmSysUserService {
 
     CommonResult<Object> getPermissionByUser(String username);
 
+    List<ChildrenRouterEntity> getPermessionByCate(String categoryName);
 }

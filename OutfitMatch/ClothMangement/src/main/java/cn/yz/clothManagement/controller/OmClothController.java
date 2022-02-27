@@ -1,5 +1,6 @@
 package cn.yz.clothManagement.controller;
 
+import cn.hutool.core.date.DateTime;
 import cn.yz.clothManagement.config.shiro.ShiroUtil;
 import cn.yz.clothManagement.dao.IOmCategoryDao;
 import cn.yz.clothManagement.dao.IOmClothDao;
@@ -113,8 +114,19 @@ public class OmClothController {
 
     @GetMapping("/cloth/getClothById/{clothId}")
     public CommonResult<OmCloth> getClothById(@PathVariable("clothId") int clothId){
-        OmCloth clothById = omClothDao.getClothById(clothId);
-        clothById.setClothUri(clothById+clothById.getClothUri());
+        OmCloth clothById = omClothService.getClothById(clothId);
         return new CommonResult<>(StatusCode.SUCCESS,clothById);
     }
+
+    @PutMapping("/cloth/updateCloth/{clothId}")
+    public CommonResult<String> updateCloth(@PathVariable("clothId") int clothId,@RequestBody OmCloth omCloth){
+        omCloth.setUpdateTime(new DateTime());
+        omCloth.setClothId(clothId);
+        int update = omClothDao.update(omCloth);
+        if(update == 1){
+            return new CommonResult<>(StatusCode.SUCCESS,"修改成功！");
+        }
+        return new CommonResult<>(StatusCode.ERROR,"修改失败！");
+    }
+
 }

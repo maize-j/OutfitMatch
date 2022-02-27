@@ -40,4 +40,8 @@
     <delete id="delete">
         DELETE FROM om_sys_role_permission WHERE role_id = #{roleId} AND permission_id = #{permissionId}
     </delete>
+
+    <select id="getRoleByUser" resultType="int">
+        SELECT role_id FROM om_sys_user_role WHERE user_id = #{userId}
+    </select>
 </mapper>

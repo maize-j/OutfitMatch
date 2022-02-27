@@ -29,7 +29,7 @@ public class OmCloth implements Serializable {
     private String clothUri;
     private int userId;
     /**接收前端的分类名称*/
-    private String categoryAccName;
+    private String categoryName;
     @NotNull(message = "服装分类不能为空")
     private int categoryId;
     /**服装适用季节 0表示没有，1表示春，2表示夏，3表示秋，4表示冬*/

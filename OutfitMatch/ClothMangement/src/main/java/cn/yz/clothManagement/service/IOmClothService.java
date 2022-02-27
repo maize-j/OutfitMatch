@@ -26,4 +26,6 @@ public interface IOmClothService {
     CommonResult<String> insertCloth(OmCloth omCloth);
 
     List<String> getClothFromRedis(int userId);
+
+    OmCloth getClothById(int clothId);
 }

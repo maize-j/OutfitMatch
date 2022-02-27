@@ -1,5 +1,6 @@
 package cn.yz.clothManagement.controller;
 
+import cn.yz.clothManagement.config.shiro.ShiroUtil;
 import cn.yz.clothManagement.entity.CommonResult;
 import cn.yz.clothManagement.entity.OmOutfit;
 import cn.yz.clothManagement.entity.StatusCode;
@@ -26,7 +27,8 @@ public class OmOutfitController {
     private IOmOutfitService omOutfitService;
 
     @GetMapping("/outfit/getOutfitByUser")
-    public CommonResult<List<OmOutfit>> getOutfitByUser(@RequestParam("userId") int userId){
+    public CommonResult<List<OmOutfit>> getOutfitByUser(){
+        int userId = ShiroUtil.getUserIdBySubject();
         List<OmOutfit> outfitByUser = omOutfitService.getOutfitByUser(userId);
         return new CommonResult<>(StatusCode.SUCCESS,outfitByUser);
     }

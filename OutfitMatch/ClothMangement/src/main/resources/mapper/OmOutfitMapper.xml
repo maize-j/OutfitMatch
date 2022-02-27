@@ -11,7 +11,7 @@
             <result column="cloth_uri" property="clothUri" jdbcType="VARCHAR"/>
             <result column="category_id" property="categoryId" jdbcType="BIGINT"/>
             <result column="user_id" property="userId" jdbcType="BIGINT"/>
-            <result column="cloth_season" property="clothSeason" jdbcType="CHAR" javaType="int"/>
+            <result column="cloth_season" property="clothSeason" jdbcType="CHAR"/>
             <result column="cloth_desc" property="desc" jdbcType="VARCHAR"/>
             <result column="del_flag" property="delFlag" jdbcType="CHAR" javaType="int"/>
             <result column="create_time" property="createTime" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
@@ -24,7 +24,7 @@
         <result column="cloth_uri" property="clothUri" jdbcType="VARCHAR"/>
         <result column="category_id" property="categoryId" jdbcType="BIGINT"/>
         <result column="user_id" property="userId" jdbcType="BIGINT"/>
-        <result column="cloth_season" property="clothSeason" jdbcType="CHAR" javaType="int"/>
+        <result column="cloth_season" property="clothSeason" jdbcType="CHAR"/>
         <result column="cloth_desc" property="desc" jdbcType="VARCHAR"/>
         <result column="del_flag" property="delFlag" jdbcType="CHAR" javaType="int"/>
         <result column="create_time" property="createTime" jdbcType="TIMESTAMP" javaType="java.util.Date"/>

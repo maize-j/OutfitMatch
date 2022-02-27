@@ -39,4 +39,8 @@
         UPDATE om_cloth SET del_flag = 1 WHERE cloth_id = #{clothId}
     </update>
 
+    <update id="update" parameterType="cn.yz.clothManagement.entity.OmCloth">
+        UPDATE om_cloth SET category_id = #{categoryId},cloth_season=#{clothSeason},cloth_desc=#{desc},update_time=#{updateTime} WHERE cloth_id = #{clothId}
+    </update>
+
 </mapper>

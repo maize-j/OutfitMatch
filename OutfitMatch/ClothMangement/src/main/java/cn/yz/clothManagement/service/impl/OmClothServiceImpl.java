@@ -19,6 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 import sun.misc.BASE64Encoder;
 
 import javax.annotation.Resource;
+import javax.validation.constraints.NotNull;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -144,5 +145,15 @@ public class OmClothServiceImpl implements IOmClothService {
         }
 
         return (List<String>)(List)clothList;
+    }
+
+    @Override
+    public OmCloth getClothById(int clothId) {
+        OmCloth clothById = omClothDao.getClothById(clothId);
+        int categoryId = clothById.getCategoryId();
+        String cateNameById = omCategoryDao.getCateNameById(categoryId);
+        clothById.setCategoryName(cateNameById);
+        clothById.setClothUri(CommonConstant.PIC_PATH+clothById.getClothUri());
+        return clothById;
     }
 }

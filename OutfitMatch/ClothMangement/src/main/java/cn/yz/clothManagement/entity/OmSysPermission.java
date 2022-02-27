@@ -23,7 +23,7 @@ public class OmSysPermission implements Serializable {
     private String name;
     private int parentId;
     private String permission;
-    private String url;
+    private String route;
     private List<OmSysRole> roles;
 
 }

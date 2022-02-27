@@ -1,5 +1,7 @@
 package cn.yz.clothManagement.service.impl;
 
+import cn.yz.clothManagement.config.shiro.ShiroUtil;
+import cn.yz.clothManagement.dao.IOmSysPermissionDao;
 import cn.yz.clothManagement.dao.IOmSysRoleDao;
 import cn.yz.clothManagement.dao.IOmSysUserDao;
 import cn.yz.clothManagement.entity.*;
@@ -29,6 +31,9 @@ public class OmSysUserServiceImpl implements IOmSysUserService {
 
     @Resource
     private IOmSysRoleDao omSysRoleDao;
+
+    @Resource
+    private IOmSysPermissionDao omSysPermissionDao;
 
     @Override
     public OmSysUser getUserByName(String username) {
@@ -74,11 +79,26 @@ public class OmSysUserServiceImpl implements IOmSysUserService {
                 List<OmSysPermission> permissionByRole1 = omSysRoleDao.getPermissionByRole(roleId, permissionId);
                 //将子权限添加进父权限
                 permissionByRole1.forEach(permission->{
-                    permissions.put(permission.getName(),permission.getUrl());
+                    permissions.put(permission.getName(),permission.getRoute());
                 });
                 parentPermission.put(omSysPermission.getName(),permissions);
             });
         });
         return new CommonResult<>(StatusCode.SUCCESS,userByName);
+    }
+
+    @Override
+    public List<ChildrenRouterEntity> getPermessionByCate(String categoryName) {
+        int userId = ShiroUtil.getUserIdBySubject();
+        int roleByUser = omSysRoleDao.getRoleByUser(userId);
+        List<Integer> permisseionByCate = omSysPermissionDao.getPermisseionByCate(categoryName);
+        List<Integer> permisseionByRole = omSysPermissionDao.getPermisseionByRole(roleByUser, permisseionByCate);
+        List<OmSysPermission> permisseionByIds = omSysPermissionDao.getPermisseionByIds(permisseionByRole);
+        List<ChildrenRouterEntity> res = new ArrayList<>();
+        for(OmSysPermission omSysPermission:permisseionByIds){
+            ChildrenRouterEntity child = new ChildrenRouterEntity(omSysPermission.getName(),"view",null,omSysPermission.getRoute(),omSysPermission.getPermission(),true,"iconfont icon-tushuguanli");
+            res.add(child);
+        }
+        return res;
     }
 }
