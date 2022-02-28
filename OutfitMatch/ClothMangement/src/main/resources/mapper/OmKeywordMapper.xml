@@ -42,5 +42,17 @@
         FROM om_keyword
         WHERE keyword_id in (SELECT keyword_id FROM om_cloth_keyword WHERE cloth_id = #{clothId})
     </select>
+    
+    <select id="getKeyWordByUser" resultMap="omKeywordMap">
+        SELECT * FROM om_keyword WHERE user_id = #{userId}
+    </select>
+    
+    <insert id="batchInsert">
+        INSERT INTO om_keyword(`keyword`, `user_id`, `count`, `create_time`,`del_flag`)
+        VALUES
+        <foreach collection="omKeywords" item="keyword" separator =",">
+            (#{keyword.keyword}, #{keyword.userId}, 0, #{keyword.createTime}, 0)
+        </foreach>
+    </insert>
 
 </mapper>

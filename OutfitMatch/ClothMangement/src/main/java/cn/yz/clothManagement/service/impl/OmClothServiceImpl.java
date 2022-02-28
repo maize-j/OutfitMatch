@@ -27,6 +27,7 @@ import java.io.InputStream;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * TODO
@@ -155,5 +156,20 @@ public class OmClothServiceImpl implements IOmClothService {
         clothById.setCategoryName(cateNameById);
         clothById.setClothUri(CommonConstant.PIC_PATH+clothById.getClothUri());
         return clothById;
+    }
+
+    @Override
+    public List<OmCloth> getClothByCate(String categoryAccName) {
+        int userId = ShiroUtil.getUserIdBySubject();
+        int categoryId = omCategoryDao.getCateIdByAccName(categoryAccName);
+        List<OmCloth> clothByCate = getClothByUserAndCate(userId,categoryId);
+        for(OmCloth omCloth:clothByCate){
+            omCloth.setClothUri(CommonConstant.PIC_PATH+omCloth.getClothUri());
+            int clothId = omCloth.getClothId();
+            List<String> keywordsByCloth = omKeywordDao.getKeywordsByCloth(clothId);
+            String collect = keywordsByCloth.stream().collect(Collectors.joining(","));
+            omCloth.setClothKeyword(collect);
+        }
+        return clothByCate;
     }
 }

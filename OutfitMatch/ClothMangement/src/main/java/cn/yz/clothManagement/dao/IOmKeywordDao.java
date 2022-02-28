@@ -26,6 +26,11 @@ public interface IOmKeywordDao {
     List<OmKeyword> getTopNKeyWord(@Param("userId") int userId,@Param("num") int num);
     /**删除关键字*/
     void delete(@Param("userId")int userId, @Param("keyword") String keyword);
-
+    /**根据服装id获取使用的关键字*/
     List<String> getKeywordsByCloth(@Param("clothId") Integer clothId);
+
+    List<OmKeyword> getKeyWordByUser(@Param("userId") int userId);
+
+    /**批量插入*/
+    int batchInsert(@Param("omKeywords")List<OmKeyword> omKeywords);
 }

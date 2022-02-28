@@ -5,10 +5,14 @@ import org.junit.Test;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
+import java.util.stream.Collectors;
 
 /**
  * TODO
@@ -93,6 +97,16 @@ public class CommonTest {
 
         System.out.println(future.get());
 //        System.out.println(123);
+    }
+
+    @Test
+    public void testStream(){
+        List<String> list = new ArrayList<>();
+        list.add("aaa");
+        list.add("bbb");
+        list.add("ccc");
+        String collect = list.stream().collect(Collectors.joining(","));
+        System.out.println(collect);
     }
 
 }

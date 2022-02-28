@@ -34,6 +34,7 @@ public class OmCloth implements Serializable {
     private int categoryId;
     /**服装适用季节 0表示没有，1表示春，2表示夏，3表示秋，4表示冬*/
     private char clothSeason;
+    private String clothKeyword;
     private String desc;
     @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd HH:mm:ss")
     @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")

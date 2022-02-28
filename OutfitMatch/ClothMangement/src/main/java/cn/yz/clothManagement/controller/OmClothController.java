@@ -55,12 +55,7 @@ public class OmClothController {
      */
     @GetMapping("/cloth/getclothByCate")
     public CommonResult<List<OmCloth>> getClothByCate(@RequestParam("categoryAccName") String categoryAccName){
-        int userId = ShiroUtil.getUserIdBySubject();
-        int categoryId = omCategoryDao.getCateIdByAccName(categoryAccName);
-        List<OmCloth> clothByCate = omClothService.getClothByUserAndCate(userId,categoryId);
-        for(OmCloth omCloth:clothByCate){
-            omCloth.setClothUri(CommonConstant.PIC_PATH+omCloth.getClothUri());
-        }
+        List<OmCloth> clothByCate = omClothService.getClothByCate(categoryAccName);
         CommonResult<List<OmCloth>> result = new CommonResult<>(StatusCode.SUCCESS, clothByCate);
         return result;
     }

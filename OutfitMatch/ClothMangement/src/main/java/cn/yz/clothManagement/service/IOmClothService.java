@@ -28,4 +28,6 @@ public interface IOmClothService {
     List<String> getClothFromRedis(int userId);
 
     OmCloth getClothById(int clothId);
+
+    List<OmCloth> getClothByCate(String categoryAccName);
 }

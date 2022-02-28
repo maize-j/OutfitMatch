@@ -73,6 +73,8 @@ public class OmSysController {
 
     @PostMapping("/sys/login")
     public CommonResult<String> login(@RequestBody OmSysUser omSysUser){
+        System.out.println(omSysUser.getUsername());
+        System.out.println(omSysUser.getPassword());
         String username = omSysUser.getUsername();
         String password = omSysUser.getPassword();
         if(CommonUtil.isNotEmpty(username) && CommonUtil.isNotEmpty(password)){

@@ -3,11 +3,9 @@ import cn.yz.clothManagement.ClothMangementMain;
 import cn.yz.clothManagement.controller.OmOutfitController;
 import cn.yz.clothManagement.dao.IOmClothDao;
 import cn.yz.clothManagement.dao.IOmOutfitDao;
-import cn.yz.clothManagement.entity.CommonResult;
-import cn.yz.clothManagement.entity.OmCloth;
-import cn.yz.clothManagement.entity.OmClothRedis;
-import cn.yz.clothManagement.entity.OmOutfit;
+import cn.yz.clothManagement.entity.*;
 import cn.yz.clothManagement.service.IOmClothService;
+import cn.yz.clothManagement.service.IOmKeyWordService;
 import cn.yz.clothManagement.service.IOmSysUserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -43,6 +41,9 @@ public class ClothTest {
 
     @Resource
     private IOmSysUserService omSysUserService;
+
+    @Resource
+    private IOmKeyWordService omKeyWordService;
 
     @Test
     public void testCloth(){
@@ -96,6 +97,13 @@ public class ClothTest {
     @Test
     public void testPermission(){
         omSysUserService.getPermessionByCate("下装");
+    }
+    @Test
+    public void testGetKeyWord(){
+        List<OmKeyword> keywordByUser = omKeyWordService.getKeywordByUser();
+        for(OmKeyword omKeyword:keywordByUser){
+            System.out.println(omKeyword);
+        }
     }
 
 
