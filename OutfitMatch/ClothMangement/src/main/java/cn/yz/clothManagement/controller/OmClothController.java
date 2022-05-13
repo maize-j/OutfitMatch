@@ -1,5 +1,6 @@
 package cn.yz.clothManagement.controller;
 
+import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.date.DateTime;
 import cn.yz.clothManagement.config.shiro.ShiroUtil;
 import cn.yz.clothManagement.dao.IOmCategoryDao;
@@ -8,6 +9,7 @@ import cn.yz.clothManagement.entity.CommonResult;
 import cn.yz.clothManagement.entity.OmSysUser;
 import cn.yz.clothManagement.entity.StatusCode;
 import cn.yz.clothManagement.entity.OmCloth;
+import cn.yz.clothManagement.entity.dto.OmClothDto;
 import cn.yz.clothManagement.service.IOmClothService;
 import cn.yz.clothManagement.utils.CommonConstant;
 import cn.yz.clothManagement.utils.CommonUtil;
@@ -54,9 +56,9 @@ public class OmClothController {
      *@date  
      */
     @GetMapping("/cloth/getclothByCate")
-    public CommonResult<List<OmCloth>> getClothByCate(@RequestParam("categoryAccName") String categoryAccName){
-        List<OmCloth> clothByCate = omClothService.getClothByCate(categoryAccName);
-        CommonResult<List<OmCloth>> result = new CommonResult<>(StatusCode.SUCCESS, clothByCate);
+    public CommonResult<List<OmClothDto>> getClothByCate(@RequestParam("categoryAccName") String categoryAccName){
+        List<OmClothDto> clothByCate = omClothService.getClothByCate(categoryAccName);
+        CommonResult<List<OmClothDto>> result = new CommonResult<>(StatusCode.SUCCESS, clothByCate);
         return result;
     }
 
@@ -83,8 +85,8 @@ public class OmClothController {
     }
 
     @PostMapping("/cloth/addCloth")
-    public CommonResult<String> addCloth(@RequestBody @Validated OmCloth omCloth){
-        return omClothService.insertCloth(omCloth);
+    public CommonResult<String> addCloth(@RequestBody OmClothDto omClothDto){
+        return omClothService.insertCloth(omClothDto);
     }
 
     @DeleteMapping("/cloth/deleteClothPic")
@@ -108,16 +110,14 @@ public class OmClothController {
     }
 
     @GetMapping("/cloth/getClothById/{clothId}")
-    public CommonResult<OmCloth> getClothById(@PathVariable("clothId") int clothId){
-        OmCloth clothById = omClothService.getClothById(clothId);
+    public CommonResult<OmClothDto> getClothById(@PathVariable("clothId") int clothId){
+        OmClothDto clothById = omClothService.getClothById(clothId);
         return new CommonResult<>(StatusCode.SUCCESS,clothById);
     }
 
     @PutMapping("/cloth/updateCloth/{clothId}")
-    public CommonResult<String> updateCloth(@PathVariable("clothId") int clothId,@RequestBody OmCloth omCloth){
-        omCloth.setUpdateTime(new DateTime());
-        omCloth.setClothId(clothId);
-        int update = omClothDao.update(omCloth);
+    public CommonResult<String> updateCloth(@PathVariable("clothId") int clothId,@RequestBody OmClothDto omClothdto){
+        int update = omClothService.update(clothId,omClothdto);
         if(update == 1){
             return new CommonResult<>(StatusCode.SUCCESS,"修改成功！");
         }

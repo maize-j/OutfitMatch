@@ -34,14 +34,18 @@
     <select id="getOutfitByUserId" resultType="INTEGER">
         SELECT outfit_id
         FROM om_outfit
-        WHERE user_id = #{userId}
+        WHERE user_id = #{userId} AND del_flag = 0
         GROUP BY outfit_id
     </select>
 
     <select id="getClothByOutfitId" resultMap="clothMap">
         SELECT *
         FROM om_cloth
-        WHERE cloth_id in (SELECT cloth_id FROM om_outfit WHERE outfit_id = #{outfitId})
+        WHERE cloth_id in (SELECT cloth_id FROM om_outfit WHERE outfit_id = #{outfitId} AND del_flag = 0) AND del_flag = 0
     </select>
+
+    <update id="deleteOutfitId">
+        UPDATE om_outfit SET del_flag = 1 WHERE outfit_id = #{outfitId}
+    </update>
 
 </mapper>

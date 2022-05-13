@@ -1,5 +1,6 @@
 package cn.yz.clothManagement.service.impl;
 
+import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.date.DateTime;
 import cn.yz.clothManagement.config.redis.RedisUtil;
 import cn.yz.clothManagement.config.shiro.ShiroUtil;
@@ -8,6 +9,7 @@ import cn.yz.clothManagement.dao.IOmClothDao;
 import cn.yz.clothManagement.dao.IOmKeywordDao;
 import cn.yz.clothManagement.dao.IOmSysLogDao;
 import cn.yz.clothManagement.entity.*;
+import cn.yz.clothManagement.entity.dto.OmClothDto;
 import cn.yz.clothManagement.entity.enums.LogType;
 import cn.yz.clothManagement.service.IOmClothService;
 import cn.yz.clothManagement.utils.CommonConstant;
@@ -26,7 +28,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -91,19 +95,30 @@ public class OmClothServiceImpl implements IOmClothService {
         return true;
     }
 
+    @Transactional
     @Override
-    public CommonResult<String> insertCloth(OmCloth omCloth) {
+    public CommonResult<String> insertCloth(OmClothDto omClothDto) {
         //前端校验，不用判空
 //        String categoryAccName = omCloth.getCategoryAccName();
 //        int cateIdByAccName = omCategoryDao.getCateIdByAccName(categoryAccName);
 //        omCloth.setCategoryId(cateIdByAccName);
+        OmCloth omCloth = new OmCloth();
+        BeanUtil.copyProperties(omClothDto,omCloth);
         int userId = ShiroUtil.getUserIdBySubject();
         omCloth.setUserId(userId);
         omCloth.setCreateTime(new DateTime());
 
+        Map<String,List<Integer>> map = omClothDto.getKeywords();
+        List<Integer> styleKeyword = map.get(CommonConstant.STYLE_KEYWORD);
+        List<Integer> bodyKeyword = map.get(CommonConstant.BODY_KEYWORD);
+        List<Integer> colorKeyword = map.get(CommonConstant.COLOR_KEYWORD);
         try{
             //存储到数据库
             omClothDao.insert(omCloth);
+            int clothId = omCloth.getClothId();
+            omKeywordDao.insertClothKeyword(clothId,styleKeyword,0);
+            omKeywordDao.insertClothKeyword(clothId,bodyKeyword,1);
+            omKeywordDao.insertClothKeyword(clothId,colorKeyword,2);
         }catch (SQLException e){
             return new CommonResult<>(StatusCode.EMPTY_ERROR,"存储失败，可能存在空值异常！");
         }
@@ -149,27 +164,68 @@ public class OmClothServiceImpl implements IOmClothService {
     }
 
     @Override
-    public OmCloth getClothById(int clothId) {
+    public OmClothDto getClothById(int clothId) {
         OmCloth clothById = omClothDao.getClothById(clothId);
         int categoryId = clothById.getCategoryId();
         String cateNameById = omCategoryDao.getCateNameById(categoryId);
         clothById.setCategoryName(cateNameById);
         clothById.setClothUri(CommonConstant.PIC_PATH+clothById.getClothUri());
-        return clothById;
+        OmClothDto omClothDto = new OmClothDto();
+        BeanUtil.copyProperties(clothById,omClothDto);
+        List<Integer> styleKeywords = omKeywordDao.getKeywordsByCloth(clothId, 0);
+        List<Integer> bodyKeywords = omKeywordDao.getKeywordsByCloth(clothId, 1);
+        List<Integer> colorKeywords = omKeywordDao.getKeywordsByCloth(clothId, 2);
+        Map<String,List<Integer>> map = new HashMap(){{
+            put(CommonConstant.STYLE_KEYWORD,styleKeywords);
+            put(CommonConstant.BODY_KEYWORD,bodyKeywords);
+            put(CommonConstant.COLOR_KEYWORD,colorKeywords);
+        }};
+        omClothDto.setKeywords(map);
+        return omClothDto;
     }
 
     @Override
-    public List<OmCloth> getClothByCate(String categoryAccName) {
+    public List<OmClothDto> getClothByCate(String categoryAccName) {
         int userId = ShiroUtil.getUserIdBySubject();
         int categoryId = omCategoryDao.getCateIdByAccName(categoryAccName);
         List<OmCloth> clothByCate = getClothByUserAndCate(userId,categoryId);
+        List<OmClothDto> omClothDtoList = new ArrayList<>();
         for(OmCloth omCloth:clothByCate){
             omCloth.setClothUri(CommonConstant.PIC_PATH+omCloth.getClothUri());
             int clothId = omCloth.getClothId();
-            List<String> keywordsByCloth = omKeywordDao.getKeywordsByCloth(clothId);
-            String collect = keywordsByCloth.stream().collect(Collectors.joining(","));
-            omCloth.setClothKeyword(collect);
+            OmClothDto omClothDto = new OmClothDto();
+            BeanUtil.copyProperties(omCloth,omClothDto);
+            Map<String,List<Integer>> keywordMap = new HashMap<>();
+            List<Integer> styleKeyword = omKeywordDao.getKeywordsByCloth(clothId,0);
+            keywordMap.put(CommonConstant.STYLE_KEYWORD,styleKeyword);
+            List<Integer> bodyKeyword = omKeywordDao.getKeywordsByCloth(clothId,0);
+            keywordMap.put(CommonConstant.BODY_KEYWORD,bodyKeyword);
+            List<Integer> colorKeyword = omKeywordDao.getKeywordsByCloth(clothId,0);
+            keywordMap.put(CommonConstant.COLOR_KEYWORD,colorKeyword);
+            omClothDtoList.add(omClothDto);
         }
-        return clothByCate;
+        return omClothDtoList;
+    }
+
+    @Transactional
+    @Override
+    public int update(int clothId,OmClothDto omClothDto) {
+        OmCloth omCloth = new OmCloth();
+        BeanUtil.copyProperties(omClothDto,omCloth);
+        omCloth.setClothId(clothId);
+        Map<String, List<Integer>> keywords = omClothDto.getKeywords();
+        List<Integer> styleKeyword = keywords.get(CommonConstant.STYLE_KEYWORD);
+        List<Integer> bodyKeyword = keywords.get(CommonConstant.BODY_KEYWORD);
+        List<Integer> colorKeyword = keywords.get(CommonConstant.COLOR_KEYWORD);
+        try{
+            omClothDao.update(omCloth);
+            omKeywordDao.deleteClothKeyword(clothId);
+            omKeywordDao.insertClothKeyword(clothId,styleKeyword,0);
+            omKeywordDao.insertClothKeyword(clothId,bodyKeyword,1);
+            omKeywordDao.insertClothKeyword(clothId,colorKeyword,2);
+        }catch (Exception e){
+            return 0;
+        }
+        return 1;
     }
 }

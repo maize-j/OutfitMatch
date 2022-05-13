@@ -109,4 +109,18 @@ public class CommonTest {
         System.out.println(collect);
     }
 
+    @Test
+    public void testData(){
+        double start = 5;
+        double end = 2.5;
+        double range = 2;
+        double current = start;
+        double sub = (start - end) / (28000-18000);
+        for(int i = 18000;i<28000;i++){
+            double temp = current + Math.random() * range - range/2.0;
+            System.out.println(temp);
+            current = current - sub;
+        }
+    }
+
 }

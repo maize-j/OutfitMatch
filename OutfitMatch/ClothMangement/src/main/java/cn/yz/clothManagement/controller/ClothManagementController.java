@@ -42,24 +42,4 @@ public class ClothManagementController {
         System.out.println("文件名称："+filePath+fileName);
         return "上传成功";
     }
-
-
-
-    @PostMapping("/testOptional")
-    public String test(@RequestBody @Validated OmClothDto omClothDto){
-        OmCloth omCloth = new OmCloth();
-        BeanUtils.copyProperties(omClothDto,omCloth);
-
-        System.out.println("Season:"+omCloth.getClothSeason());
-        if(CommonUtil.isNotEmpty(omClothDto.getDesc())){
-            if(CommonUtil.isEmpty(omClothDto.getDesc().get())){
-                omCloth.setDesc("");
-            }else{
-                omCloth.setDesc(omClothDto.getDesc().get());
-            }
-        }
-        System.out.println("desc:"+omCloth.getDesc());
-
-        return "yes";
-    }
 }

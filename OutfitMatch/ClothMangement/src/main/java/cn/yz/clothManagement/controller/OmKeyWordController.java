@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 
 /**
  * TODO
@@ -25,8 +26,8 @@ public class OmKeyWordController {
     private IOmKeyWordService omKeyWordService;
 
     @GetMapping("/keyword/getKeyWords")
-    public CommonResult<List<OmKeyword>> getKeyWords(){
-        List<OmKeyword> keywordByUser = omKeyWordService.getKeywordByUser();
+    public CommonResult<Map<String,List<OmKeyword>>> getKeyWords(){
+        Map<String,List<OmKeyword>> keywordByUser = omKeyWordService.getKeywordByUser();
         return new CommonResult<>(StatusCode.SUCCESS,keywordByUser);
     }
 

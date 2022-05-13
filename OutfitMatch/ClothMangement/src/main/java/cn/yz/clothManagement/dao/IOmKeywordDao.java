@@ -18,19 +18,22 @@ public interface IOmKeywordDao {
 
     /**添加关键字*/
     void insert(OmKeyword omKeyword);
-    /**根据用户和关键字更新使用数量*/
-    void updateCount(@Param("userId") int userId,@Param("keyword") String keyword, @Param("count") int count);
-    /**根据用户和关键字查询关键字*/
-    OmKeyword getOmKeywordByUserIdAndKeyword(@Param("userId") int userId,@Param("keyword")String keyword);
-    /**根据用户Id查询使用最多的topN关键字*/
-    List<OmKeyword> getTopNKeyWord(@Param("userId") int userId,@Param("num") int num);
-    /**删除关键字*/
-    void delete(@Param("userId")int userId, @Param("keyword") String keyword);
-    /**根据服装id获取使用的关键字*/
-    List<String> getKeywordsByCloth(@Param("clothId") Integer clothId);
 
-    List<OmKeyword> getKeyWordByUser(@Param("userId") int userId);
+    /**删除关键字*/
+    void delete(@Param("keywordId") String keywordId);
+
+    /**根据用户获取关键字*/
+    List<OmKeyword> getKeyWordByUser(@Param("userId") int userId,@Param("classification")String classification);
 
     /**批量插入*/
     int batchInsert(@Param("omKeywords")List<OmKeyword> omKeywords);
+
+    /**根据服装id获取使用的关键字，type为哪种类型的关键字，0为风格，1为质感，2为颜色*/
+    List<Integer> getKeywordsByCloth(@Param("clothId") Integer clothId,@Param("type")int type);
+
+    /**添加服装关联的关键字*/
+    void insertClothKeyword(@Param("clothId")int clothId,@Param("keywordList")List<Integer> keywordList,@Param("type")int type);
+
+    /**删除服装相关关键字*/
+    void deleteClothKeyword(@Param("clothId")int clothId);
 }

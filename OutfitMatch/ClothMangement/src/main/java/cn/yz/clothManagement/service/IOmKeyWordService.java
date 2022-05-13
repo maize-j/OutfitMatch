@@ -3,6 +3,7 @@ package cn.yz.clothManagement.service;
 import cn.yz.clothManagement.entity.OmKeyword;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * TODO
@@ -13,5 +14,5 @@ import java.util.List;
  */
 public interface IOmKeyWordService {
 
-    List<OmKeyword> getKeywordByUser();
+    Map<String , List<OmKeyword>> getKeywordByUser();
 }

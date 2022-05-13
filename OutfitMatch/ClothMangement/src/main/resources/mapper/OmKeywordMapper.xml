@@ -6,53 +6,53 @@
         <id column="keyword_id" property="keywordId" jdbcType="BIGINT"/>
         <result column="keyword" property="keyword" jdbcType="VARCHAR"/>
         <result column="user_id" property="userId" jdbcType="BIGINT"/>
-        <result column="count" property="count" jdbcType="INTEGER"/>
         <result column="del_flag" property="delFlag" jdbcType="CHAR" javaType="int"/>
         <result column="create_time" property="createTime" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
         <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+        <result column="related_word" property="relatedWord" jdbcType="VARCHAR"/>
+        <result column="classification" property="classification" jdbcType="VARCHAR"/>
     </resultMap>
 
     <insert id="insert" parameterType="cn.yz.clothManagement.entity.OmKeyword">
-        INSERT INTO om_keyword(`keyword`, `user_id`, `count`, `create_time`, `update_time`, `del_flag`)
-        VALUES (#{keyword}, #{userId}, 0, #{createTime}, #{updateTime}, 0);
+        INSERT INTO om_keyword(`keyword`, `user_id`, `create_time`, `update_time`, `del_flag`,`related_word`,`classification`)
+        VALUES (#{keyword}, #{userId}, 0, #{createTime}, #{updateTime}, 0,#{relatedWord},#{classification});
     </insert>
 
-    <update id="updateCount">
-        UPDATE om_keyword SET `count` = #{count} WHERE userId = #{userId} AND keyword = #{keyword} AND del_flag = 0
-    </update>
-
     <select id="getOmKeywordByUserIdAndKeyword" resultMap="omKeywordMap">
-        SELECT user_id,keyword,`count`
+        SELECT user_id,keyword
         FROM om_keyword
         WHERE user_id = #{userId} AND keyword = #{keyword} AND del_flag = 0
     </select>
 
-    <select id="getTopNKeyWord" resultMap="omKeywordMap">
-        SELECT user_id,keywords,`count`
-        FROM om_keyword
-        WHERE user_id = #{userId} limit #{num}
-    </select>
-
     <update id="delete">
-        UPDATE om_keyword SET `count` = 0,del_flag = 1 WHERE userId = #{userId} AND keyword = #{keyword}
+        UPDATE om_keyword SET del_flag = 1 WHERE keyword_id = #{keywordId}
     </update>
 
-    <select id="getKeywordsByCloth" resultType="String">
-        SELECT `keyword`
-        FROM om_keyword
-        WHERE keyword_id in (SELECT keyword_id FROM om_cloth_keyword WHERE cloth_id = #{clothId})
+    <select id="getKeywordsByCloth" resultType="int">
+        SELECT keyword_id FROM om_cloth_keyword WHERE cloth_id = #{clothId} AND `type` = #{type}
     </select>
     
     <select id="getKeyWordByUser" resultMap="omKeywordMap">
-        SELECT * FROM om_keyword WHERE user_id = #{userId}
+        SELECT * FROM om_keyword WHERE user_id = #{userId} AND classification = #{classification}
     </select>
     
     <insert id="batchInsert">
-        INSERT INTO om_keyword(`keyword`, `user_id`, `count`, `create_time`,`del_flag`)
+        INSERT INTO om_keyword(`keyword`, `user_id`, `create_time`, `update_time`, `del_flag`,`related_word`,`classification`)
         VALUES
         <foreach collection="omKeywords" item="keyword" separator =",">
-            (#{keyword.keyword}, #{keyword.userId}, 0, #{keyword.createTime}, 0)
+            (#{keyword.keyword}, #{keyword.userId}, 0, #{keyword.createTime}, #{keyword.updateTime}, 0,#{keyword.relatedWord},#{keyword.classification})
         </foreach>
     </insert>
+    
+    <insert id="insertClothKeyword">
+        INSERT INTO om_cloth_keyword(`cloth_id`,`keyword_id`,`create_time`,`type`,`del_flag`) VALUES
+        <foreach collection="keywordList" item="keyword" separator =",">
+            (#{clothId},#{keyword},now(),#{type},0)
+        </foreach>
+    </insert>
+    
+    <delete id="deleteClothKeyword">
+        DELETE FROM om_cloth_keyword WHERE cloth_id = #{clothId}
+    </delete>
 
 </mapper>

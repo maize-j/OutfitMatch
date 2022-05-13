@@ -3,6 +3,7 @@ package cn.yz.clothManagement.service;
 import cn.yz.clothManagement.entity.CommonResult;
 import cn.yz.clothManagement.entity.OmCloth;
 import cn.yz.clothManagement.entity.OmClothRedis;
+import cn.yz.clothManagement.entity.dto.OmClothDto;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,11 +24,13 @@ public interface IOmClothService {
 
     boolean deleteClothById(int clothId);
 
-    CommonResult<String> insertCloth(OmCloth omCloth);
+    CommonResult<String> insertCloth(OmClothDto omClothDto);
 
     List<String> getClothFromRedis(int userId);
 
-    OmCloth getClothById(int clothId);
+    OmClothDto getClothById(int clothId);
 
-    List<OmCloth> getClothByCate(String categoryAccName);
+    List<OmClothDto> getClothByCate(String categoryAccName);
+
+    int update(int clothId,OmClothDto omClothDto);
 }

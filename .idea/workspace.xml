@@ -2,16 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61f6b8ba-c5b2-49c9-8413-4bff8bb9f6b4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/controller/OmKeyWordController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/service/IOmKeyWordService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/service/impl/OmKeyWordServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/config/shiro/JwtFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/config/shiro/JwtFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/config/shiro/MyShiroRealm.java" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/config/shiro/MyShiroRealm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/controller/ClothManagementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/controller/ClothManagementController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/controller/OmClothController.java" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/controller/OmClothController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/controller/OmSysController.java" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/controller/OmSysController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/controller/OmKeyWordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/controller/OmKeyWordController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/controller/OmOutfitController.java" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/controller/OmOutfitController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/dao/IOmKeywordDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/dao/IOmKeywordDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/dao/IOmOutfitDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/dao/IOmOutfitDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/entity/OmCloth.java" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/entity/OmCloth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/entity/OmKeyword.java" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/entity/OmKeyword.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/entity/dto/OmClothDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/entity/dto/OmClothDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/service/IOmClothService.java" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/service/IOmClothService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/service/IOmKeyWordService.java" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/service/IOmKeyWordService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/service/impl/OmClothServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/service/impl/OmClothServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/service/impl/OmKeyWordServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/service/impl/OmKeyWordServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/utils/CommonConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/utils/CommonConstant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/utils/WeatherUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/java/cn/yz/clothManagement/utils/WeatherUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/resources/mapper/OmClothMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/resources/mapper/OmClothMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/resources/mapper/OmKeywordMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/resources/mapper/OmKeywordMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/resources/mapper/OmOutfitMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/main/resources/mapper/OmOutfitMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/test/java/ClothTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/test/java/ClothTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/test/java/CommonTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/OutfitMatch/ClothMangement/src/test/java/CommonTest.java" afterDir="false" />
     </list>
@@ -62,7 +72,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/OutfitMatch/images" />
+    <property name="last_opened_file_path" value="D:/idea/workspace/ai-well-back" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -94,21 +104,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ClothTest.testPermission" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ClothTest.testInsertClothKeyword" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ClothMangement" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="ClothTest" />
-      <option name="METHOD_NAME" value="testPermission" />
+      <option name="METHOD_NAME" value="testInsertClothKeyword" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ClothTest.testUpdateCloth" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CommonTest.testData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ClothMangement" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ClothTest" />
-      <option name="METHOD_NAME" value="testUpdateCloth" />
+      <option name="MAIN_CLASS_NAME" value="CommonTest" />
+      <option name="METHOD_NAME" value="testData" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -134,10 +144,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.ClothMangementMain" />
+        <item itemvalue="JUnit.ClothTest.testInsertClothKeyword" />
+        <item itemvalue="JUnit.CommonTest.testData" />
         <item itemvalue="JUnit.CommonTest.testStream" />
         <item itemvalue="JUnit.ClothTest.testGetKeyWord" />
-        <item itemvalue="JUnit.ClothTest.testPermission" />
-        <item itemvalue="JUnit.ClothTest.testUpdateCloth" />
       </list>
     </recent_temporary>
   </component>
@@ -182,7 +192,26 @@
       <workItem from="1645606411484" duration="18318000" />
       <workItem from="1645778243167" duration="11071000" />
       <workItem from="1645868675848" duration="9547000" />
-      <workItem from="1645938910452" duration="9415000" />
+      <workItem from="1645938910452" duration="9521000" />
+      <workItem from="1646035489788" duration="1708000" />
+      <workItem from="1646101092342" duration="675000" />
+      <workItem from="1646144017552" duration="751000" />
+      <workItem from="1646145768002" duration="1132000" />
+      <workItem from="1646210901808" duration="2038000" />
+      <workItem from="1646465342593" duration="26000" />
+      <workItem from="1647094464727" duration="105000" />
+      <workItem from="1647240179454" duration="11000" />
+      <workItem from="1647316315377" duration="1619000" />
+      <workItem from="1647403850582" duration="3244000" />
+      <workItem from="1647440858380" duration="51000" />
+      <workItem from="1647483418802" duration="3077000" />
+      <workItem from="1648127093589" duration="2120000" />
+      <workItem from="1648176147842" duration="3204000" />
+      <workItem from="1648628193872" duration="640000" />
+      <workItem from="1649229846333" duration="7268000" />
+      <workItem from="1649299465541" duration="10991000" />
+      <workItem from="1649401657445" duration="4941000" />
+      <workItem from="1649652024991" duration="12000" />
     </task>
     <servers />
   </component>
@@ -194,85 +223,89 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="483" y="215" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1644481334793" />
-    <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser" timestamp="1645950588878">
+    <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser" timestamp="1649326899073">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1645950588878" />
+    <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1649326899073" />
+    <state x="238" y="337" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1647497983577">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="238" y="337" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1536.824@0.0.1536.824" timestamp="1647497983577" />
     <state x="356" y="6" key="CommitChangelistDialog2" timestamp="1642759651364">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="356" y="6" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1642759651364" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1644398080873">
+    <state x="454" y="161" key="FileChooserDialogImpl" timestamp="1647440907659">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1644398080873" />
-    <state width="1493" height="201" key="GridCell.Tab.0.bottom" timestamp="1645968627676">
+    <state x="454" y="161" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1647440907659" />
+    <state width="1493" height="137" key="GridCell.Tab.0.bottom" timestamp="1649409920332">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="201" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1645968627676" />
-    <state width="1493" height="201" key="GridCell.Tab.0.center" timestamp="1645968627676">
+    <state width="1493" height="137" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1649409920332" />
+    <state width="1493" height="137" key="GridCell.Tab.0.center" timestamp="1649409920331">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="201" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1645968627676" />
-    <state width="1493" height="201" key="GridCell.Tab.0.left" timestamp="1645968627676">
+    <state width="1493" height="137" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1649409920331" />
+    <state width="1493" height="137" key="GridCell.Tab.0.left" timestamp="1649409920331">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="201" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1645968627676" />
-    <state width="1493" height="201" key="GridCell.Tab.0.right" timestamp="1645968627676">
+    <state width="1493" height="137" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1649409920331" />
+    <state width="1493" height="137" key="GridCell.Tab.0.right" timestamp="1649409920331">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="201" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1645968627676" />
-    <state width="1493" height="201" key="GridCell.Tab.1.bottom" timestamp="1645968627676">
+    <state width="1493" height="137" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1649409920331" />
+    <state width="1493" height="137" key="GridCell.Tab.1.bottom" timestamp="1649409920333">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="201" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1645968627676" />
-    <state width="1493" height="201" key="GridCell.Tab.1.center" timestamp="1645968627676">
+    <state width="1493" height="137" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1649409920333" />
+    <state width="1493" height="137" key="GridCell.Tab.1.center" timestamp="1649409920332">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="201" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1645968627676" />
-    <state width="1493" height="201" key="GridCell.Tab.1.left" timestamp="1645968627676">
+    <state width="1493" height="137" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1649409920332" />
+    <state width="1493" height="137" key="GridCell.Tab.1.left" timestamp="1649409920332">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="201" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1645968627676" />
-    <state width="1493" height="201" key="GridCell.Tab.1.right" timestamp="1645968627676">
+    <state width="1493" height="137" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1649409920332" />
+    <state width="1493" height="137" key="GridCell.Tab.1.right" timestamp="1649409920332">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="201" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1645968627676" />
-    <state width="1493" height="242" key="GridCell.Tab.2.bottom" timestamp="1645540847207">
+    <state width="1493" height="137" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1649409920332" />
+    <state width="1493" height="286" key="GridCell.Tab.2.bottom" timestamp="1649333243150">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="242" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1645540847207" />
-    <state width="1493" height="242" key="GridCell.Tab.2.center" timestamp="1645540847207">
+    <state width="1493" height="286" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1649333243150" />
+    <state width="1493" height="286" key="GridCell.Tab.2.center" timestamp="1649333243150">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="242" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1645540847207" />
-    <state width="1493" height="242" key="GridCell.Tab.2.left" timestamp="1645540847207">
+    <state width="1493" height="286" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1649333243150" />
+    <state width="1493" height="286" key="GridCell.Tab.2.left" timestamp="1649333243150">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="242" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1645540847207" />
-    <state width="1493" height="242" key="GridCell.Tab.2.right" timestamp="1645540847207">
+    <state width="1493" height="286" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1649333243150" />
+    <state width="1493" height="286" key="GridCell.Tab.2.right" timestamp="1649333243150">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="242" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1645540847207" />
-    <state x="449" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1645938910782">
+    <state width="1493" height="286" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1649333243150" />
+    <state x="449" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1649652025007">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="449" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1645938910782" />
+    <state x="449" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1649652025007" />
     <state x="408" y="27" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1644677195373">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="408" y="27" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1536.824@0.0.1536.824" timestamp="1644677195373" />
-    <state x="447" y="150" width="675" height="524" key="find.popup" timestamp="1645881188677">
+    <state x="447" y="150" width="690" height="524" key="find.popup" timestamp="1649404712052">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="447" y="150" width="675" height="524" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1645881188677" />
-    <state x="425" y="187" key="run.anything.popup" timestamp="1645352281526">
+    <state x="447" y="150" width="690" height="524" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1649404712052" />
+    <state x="425" y="187" key="run.anything.popup" timestamp="1649319322475">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1645352281526" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1645426080671">
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1649319322475" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1649405941272">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1645426080671" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1649405941272" />
   </component>
 </project>

@@ -21,4 +21,6 @@ public interface IOmOutfitDao {
 
     List<OmCloth> getClothByOutfitId(@Param("outfitId") int outfitId);
 
+    int deleteOutfitId(@Param("outfitId")int outfitId);
+
 }

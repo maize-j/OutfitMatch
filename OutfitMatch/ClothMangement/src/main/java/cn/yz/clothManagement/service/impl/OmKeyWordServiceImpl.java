@@ -5,11 +5,14 @@ import cn.yz.clothManagement.config.shiro.ShiroUtil;
 import cn.yz.clothManagement.dao.IOmKeywordDao;
 import cn.yz.clothManagement.entity.OmKeyword;
 import cn.yz.clothManagement.service.IOmKeyWordService;
+import cn.yz.clothManagement.utils.CommonConstant;
 import cn.yz.clothManagement.utils.CommonUtil;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * TODO
@@ -25,20 +28,19 @@ public class OmKeyWordServiceImpl implements IOmKeyWordService {
     private IOmKeywordDao omKeywordDao;
 
     @Override
-    public List<OmKeyword> getKeywordByUser() {
-//        int userId = ShiroUtil.getUserIdBySubject();
-        int userId = 5;
-        List<OmKeyword> keyWordByUser = omKeywordDao.getKeyWordByUser(userId);
-        if(CommonUtil.isEmpty(keyWordByUser) || keyWordByUser.size() == 0){
-            //用户没有创建关键字
-            keyWordByUser = omKeywordDao.getKeyWordByUser(-1);
-            for(OmKeyword omKeyword:keyWordByUser){
-                omKeyword.setCreateTime(new DateTime());
-                omKeyword.setUserId(userId);
-            }
-            //将这些关键字赋值给用户
-            omKeywordDao.batchInsert(keyWordByUser);
-        }
-        return keyWordByUser;
+    public Map<String , List<OmKeyword>> getKeywordByUser() {
+        Map<String,List<OmKeyword>> map = new HashMap<>();
+        int userId = ShiroUtil.getUserIdBySubject();
+        List<OmKeyword> styleKeyWord = omKeywordDao.getKeyWordByUser(-1,CommonConstant.STYLE_KEYWORD);
+        styleKeyWord.addAll(omKeywordDao.getKeyWordByUser(userId,CommonConstant.STYLE_KEYWORD));
+        map.put(CommonConstant.STYLE_KEYWORD,styleKeyWord);
+        List<OmKeyword> bodyKeyWord = omKeywordDao.getKeyWordByUser(-1,CommonConstant.BODY_KEYWORD);
+        bodyKeyWord.addAll(omKeywordDao.getKeyWordByUser(userId,CommonConstant.BODY_KEYWORD));
+        map.put(CommonConstant.BODY_KEYWORD,bodyKeyWord);
+        List<OmKeyword> colorKeyWord = omKeywordDao.getKeyWordByUser(-1,CommonConstant.COLOR_KEYWORD);
+        colorKeyWord.addAll(omKeywordDao.getKeyWordByUser(userId,CommonConstant.COLOR_KEYWORD));
+        map.put(CommonConstant.COLOR_KEYWORD,colorKeyWord);
+
+        return map;
     }
 }

@@ -91,10 +91,11 @@ public class WeatherUtil {
         String url = WeatherUtil.WEATHER_BASEURL + "key=" + WeatherUtil.WEATHER_KEY + "&location=" + location + "&gzip=n";
         JSONObject httpJson = HttpUtil.getHttpJson(url, 1);
         JSONObject content = (JSONObject) httpJson.get("now");
+        /**根据体感温度获取温度*/
         int temp = content.getInteger("temp");
-        if(temp<15){
+        if(temp<10){
             season = "冬";
-        }else if(temp>=15 && temp<=25){
+        }else if(temp>=10 && temp<=22){
             Calendar cal = Calendar.getInstance();
             int month = cal.get(Calendar.MONTH) + 1;
             if(month >= 6){

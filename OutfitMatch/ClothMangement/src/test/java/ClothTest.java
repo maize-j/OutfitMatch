@@ -2,6 +2,7 @@ import cn.hutool.core.date.DateTime;
 import cn.yz.clothManagement.ClothMangementMain;
 import cn.yz.clothManagement.controller.OmOutfitController;
 import cn.yz.clothManagement.dao.IOmClothDao;
+import cn.yz.clothManagement.dao.IOmKeywordDao;
 import cn.yz.clothManagement.dao.IOmOutfitDao;
 import cn.yz.clothManagement.entity.*;
 import cn.yz.clothManagement.service.IOmClothService;
@@ -14,7 +15,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * TODO
@@ -44,6 +48,9 @@ public class ClothTest {
 
     @Resource
     private IOmKeyWordService omKeyWordService;
+
+    @Resource
+    private IOmKeywordDao omKeywordDao;
 
     @Test
     public void testCloth(){
@@ -100,11 +107,23 @@ public class ClothTest {
     }
     @Test
     public void testGetKeyWord(){
-        List<OmKeyword> keywordByUser = omKeyWordService.getKeywordByUser();
-        for(OmKeyword omKeyword:keywordByUser){
-            System.out.println(omKeyword);
+        Map<String,List<OmKeyword>> keywordByUser = omKeyWordService.getKeywordByUser();
+        Set<String> strings = keywordByUser.keySet();
+        for(String key:strings){
+            List<OmKeyword> list = keywordByUser.get(key);
+            System.out.println(key);
+            for(OmKeyword omKeyword:list){
+                System.out.println(omKeyword);
+            }
+            System.out.println();
         }
     }
 
+    /**测试添加服装关键字*/
+    @Test
+    public void testInsertClothKeyword(){
+        List<Integer> list = new ArrayList(){{add(1);add(2);}};
+        omKeywordDao.insertClothKeyword(1,list,0);
+    }
 
 }
